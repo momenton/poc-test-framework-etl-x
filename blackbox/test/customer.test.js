@@ -1,9 +1,9 @@
 const fs = require('fs');
 var utils = require('../lib/utils.js');
 
-let srcOutputFile = './test-data/output.dat';
-let csvfile_input = './test-data/input.csv';
-let csvfile_output = './test-data/test_output.csv';
+let srcOutputFile = './test-data/output1.dat';
+let csvfile_input = './test-data/input1.csv';
+let csvfile_output = './test-data/test_output1.csv';
 var Inputfile_array;
 var Outputfile_array;
 
