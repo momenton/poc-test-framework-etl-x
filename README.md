@@ -14,6 +14,15 @@ npm -v
 
 Local execution of blackbox tests
 
+git clone https://github.com/momenton/poc-test-framework-etl-x.git
+
+switch to branch feature/customer-file 
+
+
+cd <--the path where repo is cloned-->
+
+cd blackbox
+
 npm install
 
 npm run test
