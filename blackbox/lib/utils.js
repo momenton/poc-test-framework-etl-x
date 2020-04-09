@@ -1,112 +1,110 @@
-const fs = require('fs');
-const parser = require('csv-parser')
-const reorder = require('csv-reorder');
-const moment = require('moment');
-
+'use strict'
+const fs = require('fs')
+const moment = require('moment')
+let passFlag = 0
+let ColFlag = 0
+var rows
+var rowRecord
 
 var methods = {
-    convertTocsv:  function (srcFileName, trgFileName) {
-        var array =  fs.readFileSync(srcFileName, 'utf-8').toString().split("\n");
-        let text = array                               // split lines
-            .map(line => line.split('|').join(','))  // split spaces then join with ,
-            .join('\n');
+  convertTocsv: function (srcFileName, trgFileName) {
+    var array = fs
+      .readFileSync(srcFileName, 'utf-8')
+      .toString()
+      .split('\n')
+    const text = array // split lines
+      .map(line => line.split('|').join(',')) // split spaces then join with ,
+      .join('\n')
 
-        fs.writeFileSync(trgFileName,text);
-        console.log('output file is saved as csv!');
+    fs.writeFileSync(trgFileName, text)
+    console.log('output file is saved as csv!')
 
+    // fs.writeFile(trgFileName, text, 'utf8',  function (err) {
+    //  if (err) {
+    //    console.log('Some error occured - file either not saved or corrupted file saved.');
+    // } else console.log('output file is saved as csv!');
 
+    // });
+  },
 
-        //fs.writeFile(trgFileName, text, 'utf8',  function (err) {
-          //  if (err) {
-            //    console.log('Some error occured - file either not saved or corrupted file saved.');
-            //} else console.log('output file is saved as csv!');
+  csvToArray: function (srcFileName) {
+    const csvfile = fs.readFileSync(srcFileName, 'utf-8').toString()
+    rows = csvfile.split('\n')
+    console.log('csv is converted to array')
+    return rows.map(function (row) {
+      rowRecord = row.split(',')
+      return rowRecord
+    })
+  },
 
-        //});
+  validDateFormat: function (dateStr) {
+    return moment(dateStr, 'YYYYMMDD').isValid()
+  },
+  arraySort: async function (OutputfileArray) {
+    return OutputfileArray.sort(function (a, b) {
+      return a[0] - b[0]
+    })
+  },
 
-
-    },
-
-
-    csvToArray:  function (srcFileName) {
-        let csvfile = fs.readFileSync(srcFileName, 'utf-8').toString();
-        rows = csvfile.split("\n");
-        console.log('csv is converted to array');
-        return rows.map(function (row) {
-            row_record = row.split(",");
-            return row_record;
-
-        });
-    },
-
-    validDateFormat: function (dateStr) {
-        return moment(dateStr, "YYYYMMDD").isValid();
-    },
-    arraySort: async function (Outputfile_array) {
-        return Outputfile_array.sort(function (a, b) {
-            return a[0] - b[0];
-        });
-    },
-
-    mapping_customer: function(rows_output,cols_output,Outputfile_array,Inputfile_array){
-    if (rows_output !== 0 && cols_output !== 0 ){
-        for (var i = 1; i < rows_output; i++){
-
-            if ((Outputfile_array[i][0]===Inputfile_array[i][0]) && (Outputfile_array[i][2]==='Active')) {
-
-                if(Inputfile_array[i][1] === 'Active' || Inputfile_array[i][1] === 'Inactive' || Inputfile_array[i][1] === 'Prospect'){
-                    passFlag = 1;
-                    //console.log('MATCH');
-                }else {passFlag = 0;
-                    //console.log('MISMATCH');
-                    console.log('Mismatch in data found.');
-                    break;
-                }
-            }else {passFlag = 0;
-                //console.log('MISMATCH');
-                console.log('Mismatch in data found.');
-                break;
-            }
-
+  mappingCustomer: function (
+    rowsOutput,
+    colsOutput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (rowsOutput !== 0 && colsOutput !== 0) {
+      for (var i = 1; i < rowsOutput; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][2] === 'Active'
+        ) {
+          if (
+            InputfileArray[i][1] === 'Active' ||
+            InputfileArray[i][1] === 'Inactive' ||
+            InputfileArray[i][1] === 'Prospect'
+          ) {
+            passFlag = 1
+            // console.log('MATCH');
+          } else {
+            passFlag = 0
+            // console.log('MISMATCH');
+            console.log('Mismatch in data found.')
+            break
+          }
+        } else {
+          passFlag = 0
+          // console.log('MISMATCH');
+          console.log('Mismatch in data found.')
+          break
         }
-        if(i===rows_output){
-            return 1;
-        }else return 0;
-
+      }
+      if (i === rowsOutput && passFlag === 1) {
+        return 1
+      } else return 0
     }
-},
-    blankColCheck : function (rows_output,cols_output,Outputfile_array){
-    if (rows_output !== 0 && cols_output !== 0 ){
-        outerloop:
-            for (var i = 1; i < rows_output; i++){
-                for (var j = 0;j<cols_output;j++){
-                    if(j!==0 && j !==2){
-
-                        if(Outputfile_array[i][j]==="")
-                        {
-                            ColFlag = 1;
-                            //console.log('EMPTY');
-                        }else {ColFlag = 0;
-                            //console.log('NOT EMPTY');
-                            //console.log('Remaining cols are not empty.')
-                            break outerloop;
-                        }
-                    }
-
-                }
-
+  },
+  blankColCheck: function (rowsOutput, colsOutput, OutputfileArray) {
+    if (rowsOutput !== 0 && colsOutput !== 0) {
+      for (var i = 1; i < rowsOutput; i++) {
+        for (var j = 0; j < colsOutput; j++) {
+          if (j !== 0 && j !== 2) {
+            if (OutputfileArray[i][j] === '') {
+              ColFlag = 1
+              // console.log('EMPTY');
+            } else {
+              ColFlag = 0
+              // console.log('NOT EMPTY');
+              console.log('Remaining cols are not empty.')
+              j = i = -1
             }
-
-
+          }
+        }
+      }
     }
-    if(i===rows_output){
-        return 1;
-    }else return 0
-
+    if (i === rowsOutput && ColFlag === 1) {
+      return 1
+    } else return 0
+  }
 }
 
-
-};
-
-module.exports = methods;
-
-
+module.exports = methods
