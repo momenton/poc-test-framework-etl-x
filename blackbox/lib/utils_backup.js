@@ -72,6 +72,7 @@ var methods = {
             InputfileArray[i][1] === 'Prospect'
           ) {
             passFlag = 1
+            // console.log('MATCH');
           } else {
             passFlag = 0
             // console.log('MISMATCH');
@@ -92,7 +93,7 @@ var methods = {
   },
   blankColCheck: function (rowsOutput, colsOutput, OutputfileArray) {
     if (rowsOutput !== 0 && colsOutput !== 0) {
-      for (var i = 2; i < rowsOutput; i++) {
+      for (var i = 1; i < rowsOutput; i++) {
         for (var j = 0; j < colsOutput; j++) {
           if (j !== 0 && j !== 2) {
             if (OutputfileArray[i][j] === '') {
@@ -114,6 +115,7 @@ var methods = {
   },
 
   downloadFile: async function (bucketName, fileName, downlaodOptions) {
+    console.log('called download')
     try {
       await storage
         .bucket(bucketName)
@@ -122,25 +124,8 @@ var methods = {
     } catch (err) {
       console.log(err)
     }
-  },
-  getFile: async function (path, timeout) {
-    return new Promise((resolve, reject) => {
-      timeout = setInterval(function () {
-        const file = path
-        const fileExists = fs.existsSync(file)
-        if (fileExists) {
-          console.log('file exists')
-          clearInterval(timeout)
-          return resolve(path)
-        }
-      }, timeout)
-    })
-  },
-  deleteRow: function (arr, row) {
-    arr = arr.slice(0) // make copy
-    arr.splice(row - 1, 1)
-    return arr
   }
 }
 
 module.exports = methods
+//  (parseInt(OutputfileArray[i][0]).toString(8))

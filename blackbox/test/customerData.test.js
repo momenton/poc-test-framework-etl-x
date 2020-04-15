@@ -1,11 +1,25 @@
 'use strict'
 
 var utils = require('../lib/utils.js')
+const path = require('path')
 
-const srcOutputFile = './data/output1.dat'
-const csvfileInput = './data/input1.csv'
-const csvfileOutput = './data/test_output1.csv'
+const downlaodOptionsinput = {
+  destination: path.resolve('data/input.csv')
+}
+
+const downlaodOptionsoutput = {
+  destination: path.resolve('data/output.dat')
+}
+
+const bucketName = 'zafin-read-location'
+const inputFileName = 'customer_data/customer.csv'
+const outputFileName = 'customer_data/op1586908049.699028-00000-of-00001'
+const srcOutputFile = path.resolve('data/output.dat')
+const csvfileInput = path.resolve('data/input.csv')
+const csvfileOutput = path.resolve('data/test_output.csv')
+
 var InputfileArray
+var OutputfileArr
 var OutputfileArray
 
 let rowsInput = 0
@@ -15,25 +29,29 @@ let colsOutput = 0
 describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
   beforeAll(async () => {
+    await utils.downloadFile(bucketName, inputFileName, downlaodOptionsinput)
+    await utils.downloadFile(bucketName, outputFileName, downlaodOptionsoutput)
+    await utils.getFile(csvfileInput, 1000)
+    await utils.getFile(srcOutputFile, 1000)
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     InputfileArray = await utils.csvToArray(csvfileInput)
-    OutputfileArray = await utils.csvToArray(csvfileOutput)
+    OutputfileArr = await utils.csvToArray(csvfileOutput)
+    OutputfileArray = utils.deleteRow(OutputfileArr, OutputfileArr.length)
     OutputfileArray = await utils.arraySort(OutputfileArray)
   })
 
   test('date format in output header should be YYYYMMDD', () => {
     var datecheck = utils.validDateFormat(OutputfileArray[0][1])
-
-    console.log(InputfileArray)
-    console.log(OutputfileArray)
     expect(datecheck).toBeTruthy()
   })
+
   test('Header of output file "#|YYYYMMDD|no of records ,"', () => {
     const headerOutput = OutputfileArray[0].toString()
     const expHeader =
       '#,' + OutputfileArray[0][1] + ',' + (InputfileArray.length - 1)
     expect(headerOutput).toEqual(expHeader)
   })
+
   test('Number of records in Input and output file should be equal', () => {
     rowsInput = InputfileArray.length
     rowsOutput = OutputfileArray.length
@@ -43,6 +61,7 @@ describe('File comparison tests of customer file', () => {
     colsOutput = OutputfileArray[2].length
     expect(colsOutput).toEqual(10)
   })
+
   test('mapping of input file to output file should be correct', () => {
     const mappingCheck = utils.mappingCustomer(
       rowsOutput,
