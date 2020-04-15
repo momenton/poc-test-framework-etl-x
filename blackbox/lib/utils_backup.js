@@ -4,7 +4,7 @@ const fs = require('fs')
 const moment = require('moment')
 const path = require('path')
 const { Storage } = require('@google-cloud/storage')
-const serviceKey = path.resolve('config/anzx-etl-bc6dbecb1a6d.json')
+const serviceKey = path.resolve('config/gs_momenton.json')
 const storageConf = { keyFilename: serviceKey }
 const storage = new Storage(storageConf)
 

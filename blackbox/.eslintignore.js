@@ -1,2 +1,2 @@
 ;/performance/ ** (/allure-results/ ** (/allure-report/ ** http.log))
-junit.xml
+junit.xml.env

@@ -6,5 +6,6 @@ module.exports = {
   setupFilesAfterEnv: ['jest-allure/dist/setup'],
   verbose: true,
   reporters: ['default', 'jest-junit'],
+  GS_KEY: process.env.GS_KEY,
   moduleNameMapper: {}
 }

@@ -13,7 +13,7 @@ const downlaodOptionsoutput = {
 
 const bucketName = 'zafin-read-location'
 const inputFileName = 'customer_data/customer.csv'
-const outputFileName = 'customer_data/op1586908049.699028-00000-of-00001'
+const outputFileName = 'customer_data/CUSTOMER.DAT'
 const srcOutputFile = path.resolve('data/output.dat')
 const csvfileInput = path.resolve('data/input.csv')
 const csvfileOutput = path.resolve('data/test_output.csv')
@@ -24,15 +24,14 @@ var OutputfileArray
 
 let rowsInput = 0
 let rowsOutput = 0
-let colsOutput = 0
 
 describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
   beforeAll(async () => {
     await utils.downloadFile(bucketName, inputFileName, downlaodOptionsinput)
     await utils.downloadFile(bucketName, outputFileName, downlaodOptionsoutput)
-    await utils.getFile(csvfileInput, 1000)
-    await utils.getFile(srcOutputFile, 1000)
+    await utils.getFile(csvfileInput, 500)
+    await utils.getFile(srcOutputFile, 500)
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     InputfileArray = await utils.csvToArray(csvfileInput)
     OutputfileArr = await utils.csvToArray(csvfileOutput)
@@ -58,25 +57,20 @@ describe('File comparison tests of customer file', () => {
     expect(rowsOutput).toBe(rowsInput)
   })
   test('Number of columns in output file should be 10', () => {
-    colsOutput = OutputfileArray[2].length
-    expect(colsOutput).toEqual(10)
+    const columnCheck = utils.numberOfColumns(OutputfileArray, 10)
+    expect(columnCheck).toBeTruthy()
   })
 
   test('mapping of input file to output file should be correct', () => {
     const mappingCheck = utils.mappingCustomer(
-      rowsOutput,
-      colsOutput,
+      10,
       OutputfileArray,
       InputfileArray
     )
     expect(mappingCheck).toBeTruthy()
   })
   test('Unmapped columns of output file should be blank', () => {
-    const blankColCheck = utils.blankColCheck(
-      rowsOutput,
-      colsOutput,
-      OutputfileArray
-    )
+    const blankColCheck = utils.blankColCheck(10, OutputfileArray)
     expect(blankColCheck).toBeTruthy()
   })
 })

@@ -2,9 +2,12 @@
 
 const fs = require('fs')
 const moment = require('moment')
-const path = require('path')
+require('dotenv-flow').config()
+// const path = require('path')
+var constants = require('../jest.config.js')
+
 const { Storage } = require('@google-cloud/storage')
-const serviceKey = path.resolve('config/anzx-etl-bc6dbecb1a6d.json')
+const serviceKey = constants.GS_KEY // path.resolve('config/gs_momenton.json')
 const storageConf = { keyFilename: serviceKey }
 const storage = new Storage(storageConf)
 
@@ -54,14 +57,13 @@ var methods = {
     })
   },
 
-  mappingCustomer: function (
-    rowsOutput,
-    colsOutput,
-    OutputfileArray,
-    InputfileArray
-  ) {
-    if (rowsOutput !== 0 && colsOutput !== 0) {
-      for (var i = 1; i < rowsOutput; i++) {
+  mappingCustomer: function (colsOutput, OutputfileArray, InputfileArray) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
         if (
           OutputfileArray[i][0] === InputfileArray[i][0] &&
           OutputfileArray[i][2] === 'Active'
@@ -85,14 +87,14 @@ var methods = {
           break
         }
       }
-      if (i === rowsOutput && passFlag === 1) {
+      if (i === OutputfileArray.length && passFlag === 1) {
         return 1
       } else return 0
     }
   },
-  blankColCheck: function (rowsOutput, colsOutput, OutputfileArray) {
-    if (rowsOutput !== 0 && colsOutput !== 0) {
-      for (var i = 2; i < rowsOutput; i++) {
+  blankColCheck: function (colsOutput, OutputfileArray) {
+    if (OutputfileArray.length !== 0 && colsOutput !== 0) {
+      for (var i = 2; i < OutputfileArray.length; i++) {
         for (var j = 0; j < colsOutput; j++) {
           if (j !== 0 && j !== 2) {
             if (OutputfileArray[i][j] === '') {
@@ -108,7 +110,7 @@ var methods = {
         }
       }
     }
-    if (i === rowsOutput && ColFlag === 1) {
+    if (i === OutputfileArray.length && ColFlag === 1) {
       return 1
     } else return 0
   },
@@ -140,6 +142,20 @@ var methods = {
     arr = arr.slice(0) // make copy
     arr.splice(row - 1, 1)
     return arr
+  },
+  numberOfColumns: function (arrayFile, expColumn) {
+    if (arrayFile.length !== 0) {
+      for (var i = 1; i < arrayFile.length; i++) {
+        if (arrayFile[i].length === expColumn) {
+        } else {
+          console.log('row  ' + i + ' does not have ' + expColumn + ' columns')
+          break
+        }
+      }
+    }
+    if (i === arrayFile.length) {
+      return 1
+    } else return 0
   }
 }
 
