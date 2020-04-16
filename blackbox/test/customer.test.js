@@ -15,6 +15,7 @@ let rowsOutput = 0
 describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
   beforeAll(async () => {
+    utils.checkFile(csvfileOutput)
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     InputfileArray = await utils.csvToArray(csvfileInput)
     OutputfileArr = await utils.csvToArray(csvfileOutput)

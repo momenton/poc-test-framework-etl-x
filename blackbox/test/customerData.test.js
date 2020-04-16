@@ -1,17 +1,16 @@
 'use strict'
 
 var utils = require('../lib/utils.js')
+
 const path = require('path')
 
 const downlaodOptionsinput = {
   destination: path.resolve('data/input.csv')
 }
-
 const downlaodOptionsoutput = {
   destination: path.resolve('data/output.dat')
 }
 
-const bucketName = 'zafin-read-location'
 const inputFileName = 'customer_data/customer.csv'
 const outputFileName = 'customer_data/CUSTOMER.DAT'
 const srcOutputFile = path.resolve('data/output.dat')
@@ -21,22 +20,32 @@ const csvfileOutput = path.resolve('data/test_output.csv')
 var InputfileArray
 var OutputfileArr
 var OutputfileArray
-
-let rowsInput = 0
-let rowsOutput = 0
+// var serviceKey
+// var bucketName
 
 describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
-  beforeAll(async () => {
-    await utils.downloadFile(bucketName, inputFileName, downlaodOptionsinput)
-    await utils.downloadFile(bucketName, outputFileName, downlaodOptionsoutput)
-    await utils.getFile(csvfileInput, 500)
-    await utils.getFile(srcOutputFile, 500)
+  beforeAll(async done => {
+    await utils.downloadFile(
+      serviceKey,
+      bucketName,
+      inputFileName,
+      downlaodOptionsinput
+    )
+    await utils.downloadFile(
+      serviceKey,
+      bucketName,
+      outputFileName,
+      downlaodOptionsoutput
+    )
+    // await utils.getFile(csvfileInput,1000)
+    // await utils.getFile(srcOutputFile,1000)
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     InputfileArray = await utils.csvToArray(csvfileInput)
     OutputfileArr = await utils.csvToArray(csvfileOutput)
     OutputfileArray = utils.deleteRow(OutputfileArr, OutputfileArr.length)
     OutputfileArray = await utils.arraySort(OutputfileArray)
+    done()
   })
 
   test('date format in output header should be YYYYMMDD', () => {
@@ -52,9 +61,9 @@ describe('File comparison tests of customer file', () => {
   })
 
   test('Number of records in Input and output file should be equal', () => {
-    rowsInput = InputfileArray.length
-    rowsOutput = OutputfileArray.length
-    expect(rowsOutput).toBe(rowsInput)
+    // console.log(OutputfileArray);
+    // console.log(InputfileArray);
+    expect(OutputfileArray.length).toBe(InputfileArray.length)
   })
   test('Number of columns in output file should be 10', () => {
     const columnCheck = utils.numberOfColumns(OutputfileArray, 10)

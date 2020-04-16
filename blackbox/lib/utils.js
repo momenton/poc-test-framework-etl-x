@@ -2,14 +2,10 @@
 
 const fs = require('fs')
 const moment = require('moment')
-require('dotenv-flow').config()
+// require('dotenv-flow').config()
 // const path = require('path')
-var constants = require('../jest.config.js')
-
+// var constants = require('../jest.config.js')
 const { Storage } = require('@google-cloud/storage')
-const serviceKey = constants.GS_KEY // path.resolve('config/gs_momenton.json')
-const storageConf = { keyFilename: serviceKey }
-const storage = new Storage(storageConf)
 
 let passFlag = 0
 let ColFlag = 0
@@ -27,7 +23,7 @@ var methods = {
       .join('\n')
 
     fs.writeFileSync(trgFileName, text)
-    console.log('output file is saved as csv!')
+    // console.log('output file is saved as csv!')
 
     // fs.writeFile(trgFileName, text, 'utf8',  function (err) {
     //  if (err) {
@@ -40,7 +36,7 @@ var methods = {
   csvToArray: function (srcFileName) {
     const csvfile = fs.readFileSync(srcFileName, 'utf-8').toString()
     rows = csvfile.split('\n')
-    console.log('csv is converted to array')
+    // console.log('csv is converted to array')
     return rows.map(function (row) {
       rowRecord = row.split(',')
       // console.log(rowRecord)
@@ -77,13 +73,13 @@ var methods = {
           } else {
             passFlag = 0
             // console.log('MISMATCH');
-            console.log('Mismatch in data found.')
+            console.log('Mismatch in data found in row ' + i)
             break
           }
         } else {
           passFlag = 0
           // console.log('MISMATCH');
-          console.log('Mismatch in data found.')
+          console.log('Mismatch in data found in row ' + i)
           break
         }
       }
@@ -115,7 +111,14 @@ var methods = {
     } else return 0
   },
 
-  downloadFile: async function (bucketName, fileName, downlaodOptions) {
+  downloadFile: async function (
+    serviceKey,
+    bucketName,
+    fileName,
+    downlaodOptions
+  ) {
+    const storageConf = { keyFilename: serviceKey }
+    const storage = new Storage(storageConf)
     try {
       await storage
         .bucket(bucketName)
@@ -131,12 +134,21 @@ var methods = {
         const file = path
         const fileExists = fs.existsSync(file)
         if (fileExists) {
-          console.log('file exists')
+          // console.log('file exists')
           clearInterval(timeout)
           return resolve(path)
         }
       }, timeout)
     })
+  },
+  checkFile: function (path) {
+    try {
+      fs.accessSync(path, fs.constants.F_OK)
+
+      console.log('The file exists.')
+    } catch (err) {
+      console.error(err)
+    }
   },
   deleteRow: function (arr, row) {
     arr = arr.slice(0) // make copy
