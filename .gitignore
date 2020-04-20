@@ -1,8 +1,7 @@
 .idea/
 blackbox/node_modules
 blackbox/allure-results
-blackbox/.env.development
-blackbox/config/gs_momenton.json
+blackbox/config/gs_key.json
 blackbox/lib/utils_backup.js
 blackbox/data/temp
 blackbox/info.log
