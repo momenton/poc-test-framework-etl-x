@@ -1,27 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" time="4.256">
-  <testsuite name="File comparison tests of customer file" errors="0" failures="0" skipped="0" timestamp="2020-04-20T01:01:05" time="3.843" tests="6">
-    <testcase classname="File comparison tests of customer file date format in output header should be YYYYMMDD" name="File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.005">
+<testsuites name="jest tests" tests="12" failures="6" time="5.901">
+  <testsuite name="File comparison tests of customer file" errors="0" failures="6" skipped="0" timestamp="2020-04-20T02:54:01" time="5.117" tests="6">
+    <testcase classname="File comparison tests of customer file date format in output header should be YYYYMMDD" name="File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.002">
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:48:43)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:53:45)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="File comparison tests of customer file Number of records in Input and output file should be equal" name="File comparison tests of customer file Number of records in Input and output file should be equal" time="0.004">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:60:36)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="File comparison tests of customer file Number of columns in output file should be 10" name="File comparison tests of customer file Number of columns in output file should be 10" time="0.001">
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:64:25)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="File comparison tests of customer file mapping of input file to output file should be correct" name="File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:73:26)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="File comparison tests of customer file Unmapped columns of output file should be blank" name="File comparison tests of customer file Unmapped columns of output file should be blank" time="0.001">
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/customerData.test.js:77:27)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="File comparison tests of customer file" errors="0" failures="0" skipped="0" timestamp="2020-04-20T02:54:06" time="0.269" tests="6">
+    <testcase classname="File comparison tests of customer file date format in output header should be YYYYMMDD" name="File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.013">
     </testcase>
     <testcase classname="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
     </testcase>
     <testcase classname="File comparison tests of customer file Number of records in Input and output file should be equal" name="File comparison tests of customer file Number of records in Input and output file should be equal" time="0.001">
     </testcase>
-    <testcase classname="File comparison tests of customer file Number of columns in output file should be 10" name="File comparison tests of customer file Number of columns in output file should be 10" time="0">
-    </testcase>
-    <testcase classname="File comparison tests of customer file mapping of input file to output file should be correct" name="File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Unmapped columns of output file should be blank" name="File comparison tests of customer file Unmapped columns of output file should be blank" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="File comparison tests of customer file" errors="0" failures="0" skipped="0" timestamp="2020-04-20T01:01:09" time="0.359" tests="6">
-    <testcase classname="File comparison tests of customer file date format in output header should be YYYYMMDD" name="File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.004">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Number of records in Input and output file should be equal" name="File comparison tests of customer file Number of records in Input and output file should be equal" time="0">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Number of columns in output file should be ten" name="File comparison tests of customer file Number of columns in output file should be ten" time="0">
+    <testcase classname="File comparison tests of customer file Number of columns in output file should be ten" name="File comparison tests of customer file Number of columns in output file should be ten" time="0.001">
     </testcase>
     <testcase classname="File comparison tests of customer file mapping of input file to output file should be correct" name="File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
     </testcase>

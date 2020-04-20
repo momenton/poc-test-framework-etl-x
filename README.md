@@ -70,6 +70,10 @@ https-proxy=http://localhost:3128
 
 proxy=http://localhost:3128
 
+Get the service account key for the ANZ google cloud storage where the files are located.
+
+It is a .json file . Save it in config folder with name – ‘gs_key.json’.
+
 rest of the steps are same as that of local execution.
 
 
