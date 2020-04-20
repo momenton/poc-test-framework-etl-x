@@ -2,7 +2,8 @@
 blackbox/node_modules
 blackbox/allure-results
 blackbox/.env.development
-blackbox/config
+blackbox/config/gs_momenton.json
 blackbox/lib/utils_backup.js
 blackbox/data/temp
 blackbox/info.log
+blackbox/test/customer.test.js
