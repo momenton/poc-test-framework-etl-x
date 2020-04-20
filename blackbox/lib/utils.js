@@ -2,10 +2,9 @@
 
 const fs = require('fs')
 const moment = require('moment')
-// require('dotenv-flow').config()
-// const path = require('path')
-// var constants = require('../jest.config.js')
 const { Storage } = require('@google-cloud/storage')
+const logger = require('@logger')
+
 
 let passFlag = 0
 let ColFlag = 0
@@ -23,23 +22,16 @@ var methods = {
       .join('\n')
 
     fs.writeFileSync(trgFileName, text)
-    // console.log('output file is saved as csv!')
+    logger.log('info','output file is saved as csv!')
 
-    // fs.writeFile(trgFileName, text, 'utf8',  function (err) {
-    //  if (err) {
-    //  console.log('Some error occured - file either not saved or corrupted file saved.');
-    //  } else console.log('output file is saved as csv!');
-
-    //  });
   },
 
   csvToArray: function (srcFileName) {
     const csvfile = fs.readFileSync(srcFileName, 'utf-8').toString()
     rows = csvfile.split('\n')
-    // console.log('csv is converted to array')
+    logger.log('info','csv is converted to array')
     return rows.map(function (row) {
       rowRecord = row.split(',')
-      // console.log(rowRecord)
       return rowRecord
     })
   },
@@ -73,13 +65,13 @@ var methods = {
           } else {
             passFlag = 0
             // console.log('MISMATCH');
-            console.log('Mismatch in data found in row ' + i)
+            logger.log('error','Mismatch in data found in row ' + i)
             break
           }
         } else {
           passFlag = 0
           // console.log('MISMATCH');
-          console.log('Mismatch in data found in row ' + i)
+          logger.log('error','Mismatch in data found in row ' + i)
           break
         }
       }
@@ -99,7 +91,7 @@ var methods = {
             } else {
               ColFlag = 0
               // console.log('NOT EMPTY');
-              console.log('Remaining cols are not empty.')
+              logger.log('error','Remaining cols are not empty.')
               j = i = -1
             }
           }
@@ -125,6 +117,7 @@ var methods = {
         .file(fileName)
         .download(downlaodOptions)
     } catch (err) {
+      logger.log('error','file not downloaded')
       console.log(err)
     }
   },
@@ -145,7 +138,7 @@ var methods = {
     try {
       fs.accessSync(path, fs.constants.F_OK)
 
-      console.log('The file exists.')
+      logger.log('info','The file exists.')
     } catch (err) {
       console.error(err)
     }
@@ -160,7 +153,7 @@ var methods = {
       for (var i = 1; i < arrayFile.length; i++) {
         if (arrayFile[i].length === expColumn) {
         } else {
-          console.log('row  ' + i + ' does not have ' + expColumn + ' columns')
+          logger.log('error','row  ' + i + ' does not have ' + expColumn + ' columns')
           break
         }
       }

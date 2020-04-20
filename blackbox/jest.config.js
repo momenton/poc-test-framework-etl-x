@@ -3,9 +3,12 @@ if (process.env.NODE_ENV === 'test') process.env.NODE_ENV = 'development'
 // require('dotenv-flow').config()
 module.exports = {
   testEnvironment: 'node',
-  setupFiles: ['dotenv-flow/config', './config/setup.js'],
+  setupFiles: ['dotenv-flow/config'],
   setupFilesAfterEnv: ['jest-allure/dist/setup'],
   verbose: true,
   reporters: ['default', 'jest-junit'],
-  moduleNameMapper: {}
+  moduleNameMapper: {
+    '^@utils$': '<rootDir>/lib/utils.js',
+    '^@logger$': '<rootDir>/config/logger.js'
+  }
 }
