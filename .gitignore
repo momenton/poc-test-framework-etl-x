@@ -1,2 +1,8 @@
 .idea/
 blackbox/node_modules
+blackbox/allure-results
+blackbox/.env.development
+blackbox/config
+blackbox/lib/utils_backup.js
+blackbox/data/temp
+blackbox/info.log

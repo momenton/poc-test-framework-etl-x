@@ -5,7 +5,6 @@ const moment = require('moment')
 const { Storage } = require('@google-cloud/storage')
 const logger = require('@logger')
 
-
 let passFlag = 0
 let ColFlag = 0
 var rows
@@ -22,14 +21,13 @@ var methods = {
       .join('\n')
 
     fs.writeFileSync(trgFileName, text)
-    logger.log('info','output file is saved as csv!')
-
+    logger.log('info', 'output file is saved as csv!')
   },
 
   csvToArray: function (srcFileName) {
     const csvfile = fs.readFileSync(srcFileName, 'utf-8').toString()
     rows = csvfile.split('\n')
-    logger.log('info','csv is converted to array')
+    logger.log('info', 'csv is converted to array')
     return rows.map(function (row) {
       rowRecord = row.split(',')
       return rowRecord
@@ -65,13 +63,13 @@ var methods = {
           } else {
             passFlag = 0
             // console.log('MISMATCH');
-            logger.log('error','Mismatch in data found in row ' + i)
+            logger.log('error', 'Mismatch in data found in row ' + i)
             break
           }
         } else {
           passFlag = 0
           // console.log('MISMATCH');
-          logger.log('error','Mismatch in data found in row ' + i)
+          logger.log('error', 'Mismatch in data found in row ' + i)
           break
         }
       }
@@ -91,7 +89,7 @@ var methods = {
             } else {
               ColFlag = 0
               // console.log('NOT EMPTY');
-              logger.log('error','Remaining cols are not empty.')
+              logger.log('error', 'Remaining cols are not empty.')
               j = i = -1
             }
           }
@@ -117,7 +115,7 @@ var methods = {
         .file(fileName)
         .download(downlaodOptions)
     } catch (err) {
-      logger.log('error','file not downloaded')
+      logger.log('error', 'file not downloaded')
       console.log(err)
     }
   },
@@ -138,7 +136,7 @@ var methods = {
     try {
       fs.accessSync(path, fs.constants.F_OK)
 
-      logger.log('info','The file exists.')
+      logger.log('info', 'The file exists.')
     } catch (err) {
       console.error(err)
     }
@@ -153,7 +151,10 @@ var methods = {
       for (var i = 1; i < arrayFile.length; i++) {
         if (arrayFile[i].length === expColumn) {
         } else {
-          logger.log('error','row  ' + i + ' does not have ' + expColumn + ' columns')
+          logger.log(
+            'error',
+            'row  ' + i + ' does not have ' + expColumn + ' columns'
+          )
           break
         }
       }
