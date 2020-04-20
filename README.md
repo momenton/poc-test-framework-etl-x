@@ -1,7 +1,9 @@
 
 
 All items in this section are to be run outside corporate network
+
 Install Home Brew
+
 Open a terminal window and run the following command:
 
 /usr/bin/ruby -e 
@@ -14,8 +16,11 @@ Install Dependencies
 brew install node
 
  node -v
+
  v13.11.0
+
  npm -v
+
  6.13.7
 
 
@@ -41,7 +46,9 @@ Clone the repo in local machine
 
 
 To run the tests
+
  Get the service account key for the google cloud storage where the files are located.
+
 It is a .json file . Save it in config folder with name – ‘gs_key.json’.
 
 npm run test
@@ -52,11 +59,15 @@ npm run check
 
 
 Execution of blackbox tests from ANZ network
+
 Create a file .npmrc in /Users/<LanId> with below contents
 	
 registry=https://artifactory.service.anz/artifactory/api/npm/skynet-npm
+
 strict-ssl=false
+
 https-proxy=http://localhost:3128
+
 proxy=http://localhost:3128
 
 rest of the steps are same as that of local execution.
