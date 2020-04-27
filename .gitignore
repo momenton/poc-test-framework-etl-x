@@ -1,8 +1,0 @@
-.idea/
-blackbox/node_modules
-blackbox/allure-results
-blackbox/config/gs_key.json
-blackbox/lib/utils_temp.js
-blackbox/data/**
-blackbox/info.log
-blackbox/test/customerLocal.test.js

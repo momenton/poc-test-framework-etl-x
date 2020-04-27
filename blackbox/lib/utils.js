@@ -4,6 +4,8 @@ const fs = require('fs')
 const moment = require('moment')
 const { Storage } = require('@google-cloud/storage')
 const logger = require('@logger')
+const AdmZip = require('adm-zip')
+const path = require('path')
 
 let passFlag = 0
 let ColFlag = 0
@@ -162,6 +164,24 @@ var methods = {
     if (i === arrayFile.length) {
       return 1
     } else return 0
+  },
+  unzipFolder: function (zipFolder, extractFolder) {
+    const zip = new AdmZip(zipFolder)
+    zip.extractAllTo(extractFolder, false, true)
+  },
+  getFilePath: function (dirpath, filename) {
+    const results = []
+    let subpath = ''
+    fs.readdirSync(dirpath).forEach(function (file) {
+      subpath = dirpath + '/' + file
+      if (
+        fs.statSync(subpath).isFile() &&
+        path.basename(subpath) === filename
+      ) {
+        results.push(subpath)
+      }
+    })
+    return results
   }
 }
 

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="78cad99e-1caf-4dd2-953f-0ba04ba64028" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/.eslintignore.js" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/.eslintignore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/.prettierignore.js" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/.prettierignore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/input.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/input1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/output.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/output1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/test_output.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/data/test_output1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/test-result/junit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/test-result/junit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackbox/test/customerData.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/blackbox/test/customerData.test.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1a9lLjc9QaCPzzAMmsj1d0lVvWF" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/blackbox/data" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/blackbox" />
+      <recent name="$PROJECT_DIR$/blackbox/test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/blackbox/data" />
+      <recent name="$PROJECT_DIR$/blackbox/lib" />
+      <recent name="$PROJECT_DIR$/blackbox/config" />
+      <recent name="$PROJECT_DIR$/blackbox/test" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78cad99e-1caf-4dd2-953f-0ba04ba64028" name="Default Changelist" comment="" />
+      <created>1586155636490</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586155636490</updated>
+      <workItem from="1586155638847" duration="243000" />
+      <workItem from="1586219350161" duration="322000" />
+      <workItem from="1586221167195" duration="764000" />
+      <workItem from="1586226843821" duration="350000" />
+      <workItem from="1586228927772" duration="696000" />
+      <workItem from="1586233536859" duration="464000" />
+      <workItem from="1586315429552" duration="1466000" />
+      <workItem from="1586318160488" duration="1700000" />
+      <workItem from="1586320114576" duration="1604000" />
+      <workItem from="1586327507051" duration="1352000" />
+      <workItem from="1586329318729" duration="1616000" />
+      <workItem from="1586389855414" duration="729000" />
+      <workItem from="1586395511126" duration="585000" />
+      <workItem from="1586399972871" duration="1075000" />
+      <workItem from="1586406746010" duration="1636000" />
+      <workItem from="1586408706570" duration="1001000" />
+      <workItem from="1586410545665" duration="1108000" />
+      <workItem from="1586824686167" duration="1365000" />
+      <workItem from="1586826995863" duration="1680000" />
+      <workItem from="1586830161282" duration="1392000" />
+      <workItem from="1586831980554" duration="1792000" />
+      <workItem from="1586833800724" duration="1792000" />
+      <workItem from="1586835618343" duration="1313000" />
+      <workItem from="1586837228833" duration="190000" />
+      <workItem from="1586837456474" duration="1776000" />
+      <workItem from="1586839283739" duration="1586000" />
+      <workItem from="1586841181531" duration="1289000" />
+      <workItem from="1586844501785" duration="1752000" />
+      <workItem from="1586846321029" duration="52000" />
+      <workItem from="1586846383369" duration="1108000" />
+      <workItem from="1586847661005" duration="456000" />
+      <workItem from="1586848143757" duration="1532000" />
+      <workItem from="1586905741558" duration="137000" />
+      <workItem from="1586906160161" duration="1009000" />
+      <workItem from="1586909378210" duration="1755000" />
+      <workItem from="1586911342001" duration="1305000" />
+      <workItem from="1586918069837" duration="1134000" />
+      <workItem from="1586919885409" duration="1465000" />
+      <workItem from="1586921702582" duration="1192000" />
+      <workItem from="1586923832769" duration="1789000" />
+      <workItem from="1586925650581" duration="1780000" />
+      <workItem from="1586927472924" duration="1182000" />
+      <workItem from="1586928666647" duration="600000" />
+      <workItem from="1586929288439" duration="1055000" />
+      <workItem from="1586930350663" duration="735000" />
+      <workItem from="1586931133023" duration="1156000" />
+      <workItem from="1586933327085" duration="204000" />
+      <workItem from="1586934874111" duration="249000" />
+      <workItem from="1586935144471" duration="443000" />
+      <workItem from="1587021458094" duration="936000" />
+      <workItem from="1587023889896" duration="196000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

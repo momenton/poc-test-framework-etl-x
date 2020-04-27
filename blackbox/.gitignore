@@ -1,0 +1,8 @@
+.idea/
+/node_modules
+/allure-results
+/config/gs_key.json
+/lib/utils_temp.js
+/data/**
+/info.log
+/test/tempTest/**

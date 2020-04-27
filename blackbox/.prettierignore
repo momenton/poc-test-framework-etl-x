@@ -1,3 +1,4 @@
 /allure-results/**
 junit.xml
 /test-results/**
+/test/tempTest/**

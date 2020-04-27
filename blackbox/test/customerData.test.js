@@ -2,7 +2,9 @@
 
 const utils = require('@utils')
 const path = require('path')
-
+const downlaodOptionsfolder = {
+  destination: path.resolve('data/encrypted')
+}
 const downlaodOptionsinput = {
   destination: path.resolve('data/input.csv')
 }
@@ -10,9 +12,11 @@ const downlaodOptionsoutput = {
   destination: path.resolve('data/output.dat')
 }
 
-const inputFileName = 'customer_data/customer.csv'
+const inputFileName = 'customer.csv'
 const outputFileName = 'customer_data/CUSTOMER.DAT'
-const srcOutputFile = path.resolve('data/output.dat')
+const zipFolder = path.resolve('data/zafin_zipped.zip')
+const dirName = path.resolve('data/batchFiles')
+//const srcOutputFile = path.resolve('data/output.dat')
 const csvfileInput = path.resolve('data/input.csv')
 const csvfileOutput = path.resolve('data/test_output.csv')
 let outputfileArr = []
@@ -23,19 +27,33 @@ describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
   beforeAll(async done => {
     jest.setTimeout(20000)
+    /*
     await utils.downloadFile(
       process.env.GS_KEY,
-      process.env.GS_BUCKET_NAME,
+      process.env.GS_BUCKET_ENCRYPTED,
+      'INPUT_20200421.ZIP.ASC',
+      downlaodOptionsfolder
+    )
+    */
+    /*
+    await utils.downloadFile(
+      process.env.GS_KEY,
+      process.env.GS_BUCKET_NAME_INPUT,
       inputFileName,
       downlaodOptionsinput
     )
+    */
+    /*
     await utils.downloadFile(
       process.env.GS_KEY,
-      process.env.GS_BUCKET_NAME,
+      process.env.GS_BUCKET_NAME_OUTPUT,
       outputFileName,
       downlaodOptionsoutput
     )
+     */
 
+    await utils.unzipFolder(zipFolder, dirName)
+    let srcOutputFile = utils.getFilePath(dirName, 'CUSTOMER.DAT').toString()
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     inputfileArray = await utils.csvToArray(csvfileInput)
     outputfileArr = await utils.csvToArray(csvfileOutput)
