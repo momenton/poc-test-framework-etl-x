@@ -1,4 +1,4 @@
-.idea/
+../.idea/
 /node_modules
 /allure-results
 /config/gs_key.json
