@@ -16,7 +16,7 @@ const downlaodOptionsoutput = {
 */
 // const inputFileName = 'customer.csv'
 const outputFileName = 'CUSTOMER.DAT'
-const zipFolder = path.resolve('data/zafin_zipped.zip')
+// const zipFolder = path.resolve('data/zafin_zipped.zip')
 const dirName = path.resolve('data/batchFiles')
 const csvfileInput = path.resolve('data/input.csv')
 const csvfileOutput = path.resolve('data/test_output.csv')
@@ -53,7 +53,6 @@ describe('File comparison tests of customer file', () => {
     )
      */
 
-    
     const srcOutputFile = utils.getFilePath(dirName, outputFileName).toString()
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     inputfileArray = await utils.csvToArray(csvfileInput)
