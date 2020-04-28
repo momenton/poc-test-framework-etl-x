@@ -1,53 +1,49 @@
-
-
 All items in this section are to be run outside corporate network
 
 Install Home Brew
 
 Open a terminal window and run the following command:
 
-/usr/bin/ruby -e 
-"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e
+"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Install Dependencies
 
- Run the following commands:
+Run the following commands:
 
 brew install node
 
- node -v
+node -v
 
- v13.11.0
+v13.11.0
 
- npm -v
+npm -v
 
- 6.13.7
-
+6.13.7
 
 Local execution of blackbox tests
 
 Clone the repo in local machine
 
-  git clone https://github.com/momenton/poc-test-framework-etl-x.git
+git clone https://github.com/momenton/poc-test-framework-etl-x.git
 
-  switch to the latest branch – test-framework
+switch to the latest branch – test-framework
 
-  git checkout test-framework
+git checkout test-framework
 
-  from the path where repo is cloned, go to blackbox directory
+from the path where repo is cloned, go to blackbox directory
 
-  cd < the path where repo is cloned>
+cd < the path where repo is cloned>
 
-  cd blackbox
+cd blackbox
 
-  Install all the dependencies used 
+Install all the dependencies used
 
-  npm install 
-
+npm install
 
 To run the tests
 
- Get the service account key for the google cloud storage where the files are located.
+Get the service account key for the google cloud storage where the files are located.
 
 It is a .json file . Save it in config folder with name – ‘gs_key.json’.
 
@@ -55,13 +51,11 @@ npm run test
 
 To check prettier standard format
 
-npm run check 
-
+npm run check
 
 Execution of blackbox tests from ANZ network
 
 Create a file .npmrc in /Users/<LanId> with below contents
-	
 registry=https://artifactory.service.anz/artifactory/api/npm/skynet-npm
 
 strict-ssl=false
@@ -75,5 +69,3 @@ Get the service account key for the ANZ google cloud storage where the files are
 It is a .json file . Save it in config folder with name – ‘gs_key.json’.
 
 rest of the steps are same as that of local execution.
-
-

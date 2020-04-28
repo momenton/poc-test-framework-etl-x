@@ -2,21 +2,22 @@
 
 const utils = require('@utils')
 const path = require('path')
+/*
 const downlaodOptionsfolder = {
   destination: path.resolve('data/encrypted')
 }
+
 const downlaodOptionsinput = {
   destination: path.resolve('data/input.csv')
 }
 const downlaodOptionsoutput = {
   destination: path.resolve('data/output.dat')
 }
-
-const inputFileName = 'customer.csv'
-const outputFileName = 'customer_data/CUSTOMER.DAT'
+*/
+// const inputFileName = 'customer.csv'
+const outputFileName = 'CUSTOMER.DAT'
 const zipFolder = path.resolve('data/zafin_zipped.zip')
 const dirName = path.resolve('data/batchFiles')
-//const srcOutputFile = path.resolve('data/output.dat')
 const csvfileInput = path.resolve('data/input.csv')
 const csvfileOutput = path.resolve('data/test_output.csv')
 let outputfileArr = []
@@ -52,8 +53,8 @@ describe('File comparison tests of customer file', () => {
     )
      */
 
-    await utils.unzipFolder(zipFolder, dirName)
-    let srcOutputFile = utils.getFilePath(dirName, 'CUSTOMER.DAT').toString()
+    
+    const srcOutputFile = utils.getFilePath(dirName, outputFileName).toString()
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     inputfileArray = await utils.csvToArray(csvfileInput)
     outputfileArr = await utils.csvToArray(csvfileOutput)

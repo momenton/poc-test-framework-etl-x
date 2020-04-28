@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=development  JEST_JUNIT_OUTPUT_DIR=test-result node_modules/.bin/jest",
+    "test": "cross-env NODE_ENV=development  JEST_JUNIT_OUTPUT_DIR=test-result node_modules/.bin/jest --detectOpenHandles",
     "lint": "node_modules/.bin/prettier-standard --lint",
     "format": "node_modules/.bin/prettier-standard --format",
     "check": "npm run format && npm run lint"
