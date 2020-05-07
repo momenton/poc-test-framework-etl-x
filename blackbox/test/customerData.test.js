@@ -2,10 +2,6 @@
 
 const utils = require('@utils')
 const path = require('path')
-/*
-const downlaodOptionsfolder = {
-  destination: path.resolve('data/encrypted')
-}
 
 const downlaodOptionsinput = {
   destination: path.resolve('data/input.csv')
@@ -13,11 +9,9 @@ const downlaodOptionsinput = {
 const downlaodOptionsoutput = {
   destination: path.resolve('data/output.dat')
 }
-*/
-// const inputFileName = 'customer.csv'
-const outputFileName = 'CUSTOMER.DAT'
-// const zipFolder = path.resolve('data/zafin_zipped.zip')
-const dirName = path.resolve('data/batchFiles')
+
+const inputFileName = 'customer_ocv.csv'
+const outputFileName = 'customer_data/CUSTOMER.DAT'
 const csvfileInput = path.resolve('data/input.csv')
 const csvfileOutput = path.resolve('data/test_output.csv')
 let outputfileArr = []
@@ -28,37 +22,28 @@ describe('File comparison tests of customer file', () => {
   // prepare output.dat file for comparison
   beforeAll(async done => {
     jest.setTimeout(20000)
-    /*
-    await utils.downloadFile(
-      process.env.GS_KEY,
-      process.env.GS_BUCKET_ENCRYPTED,
-      'INPUT_20200421.ZIP.ASC',
-      downlaodOptionsfolder
-    )
-    */
-    /*
-    await utils.downloadFile(
-      process.env.GS_KEY,
-      process.env.GS_BUCKET_NAME_INPUT,
-      inputFileName,
-      downlaodOptionsinput
-    )
-    */
-    /*
+
     await utils.downloadFile(
       process.env.GS_KEY,
       process.env.GS_BUCKET_NAME_OUTPUT,
       outputFileName,
       downlaodOptionsoutput
     )
-     */
 
-    const srcOutputFile = utils.getFilePath(dirName, outputFileName).toString()
+    await utils.downloadFile(
+      process.env.GS_KEY,
+      process.env.GS_BUCKET_NAME_INPUT,
+      inputFileName,
+      downlaodOptionsinput
+    )
+
+    const srcOutputFile = path.resolve('data/output.dat') // utils.getFilePath(dirName, outputFileName).toString()
     await utils.convertTocsv(srcOutputFile, csvfileOutput)
     inputfileArray = await utils.csvToArray(csvfileInput)
     outputfileArr = await utils.csvToArray(csvfileOutput)
     outputfileArray = utils.deleteRow(outputfileArr, outputfileArr.length)
-    outputfileArray = await utils.arraySort(outputfileArray)
+    outputfileArray = outputfileArray.sort(utils.sortAlphaNum) // await utils.arraySortNew(outputfileArray)
+    inputfileArray = inputfileArray.sort(utils.sortAlphaNum) // await utils.arraySortNew(inputfileArray)
     done()
   })
 
@@ -83,15 +68,16 @@ describe('File comparison tests of customer file', () => {
   })
 
   test('mapping of input file to output file should be correct', () => {
-    const mappingCheck = utils.mappingCustomer(
+    const mappingCheck = utils.mappingCustomerNew(
       10,
+      6,
       outputfileArray,
       inputfileArray
     )
     expect(mappingCheck).toBeTruthy()
   })
   test('Unmapped columns of output file should be blank', () => {
-    const blankColCheck = utils.blankColCheck(10, outputfileArray)
+    const blankColCheck = utils.blankColCheckNew(6, 10, outputfileArray)
     expect(blankColCheck).toBeTruthy()
   })
 })

@@ -6,6 +6,7 @@ const { Storage } = require('@google-cloud/storage')
 const logger = require('@logger')
 const AdmZip = require('adm-zip')
 const path = require('path')
+const openpgp = require('openpgp')
 
 let passFlag = 0
 let ColFlag = 0
@@ -54,7 +55,7 @@ var methods = {
       for (var i = 1; i < OutputfileArray.length; i++) {
         if (
           OutputfileArray[i][0] === InputfileArray[i][0] &&
-          OutputfileArray[i][2] === 'Active'
+          OutputfileArray[i][3] === 'Active'
         ) {
           if (
             InputfileArray[i][1] === 'Active' ||
@@ -84,7 +85,7 @@ var methods = {
     if (OutputfileArray.length !== 0 && colsOutput !== 0) {
       for (var i = 2; i < OutputfileArray.length; i++) {
         for (var j = 0; j < colsOutput; j++) {
-          if (j !== 0 && j !== 2) {
+          if (j !== 0 && j !== 3) {
             if (OutputfileArray[i][j] === '') {
               ColFlag = 1
               // console.log('EMPTY');
@@ -182,6 +183,145 @@ var methods = {
       }
     })
     return results
+  },
+  mappingAcctCustRel: function (colsOutput, OutputfileArray, InputfileArray) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][1] === InputfileArray[i][1] &&
+          OutputfileArray[i][2] === InputfileArray[i][2]
+        ) {
+          if (
+            InputfileArray[i][2] === 'PRIMARY' ||
+            InputfileArray[i][2] === 'SOLE' ||
+            InputfileArray[i][2] === 'NON_PRIMARY'
+          ) {
+            passFlag = 1
+          } else {
+            passFlag = 0
+            // console.log('MISMATCH');
+            logger.log('error', 'Mismatch in data found in row ' + i)
+            break
+          }
+        } else {
+          passFlag = 0
+          // console.log('MISMATCH');
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    }
+  },
+
+  mappingCustomerNew: function (
+    colsOutput,
+    colsInput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      colsInput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        for (var j = 0; j < colsInput; j++) {
+          if (OutputfileArray[i][j] === InputfileArray[i][j] || j === 3) {
+            if (
+              OutputfileArray[i][3] === 'ACTIVE' &&
+              (InputfileArray[i][3] === 'Active' ||
+                InputfileArray[i][3] === 'Inactive' ||
+                InputfileArray[i][3] === 'Prospect')
+            ) {
+              passFlag = 1
+            } else {
+              console.log(OutputfileArray[i][3])
+              console.log(InputfileArray[i][3])
+              passFlag = 0
+              // console.log('MISMATCH');
+              logger.log('error', 'Mismatch in data found in row ' + i)
+              j = -1
+              i = -1
+            }
+          } else {
+            passFlag = 0
+            // console.log('MISMATCH');
+            logger.log('error', 'Mismatch in data found in row ' + i)
+            break
+          }
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    }
+  },
+  blankColCheckNew: function (colsInput, colsOutput, OutputfileArray) {
+    if (OutputfileArray.length !== 0 && colsOutput !== 0) {
+      for (var i = 2; i < OutputfileArray.length; i++) {
+        for (var j = colsInput + 1; j < colsOutput; j++) {
+          if (OutputfileArray[i][j] === '') {
+            ColFlag = 1
+            // console.log('EMPTY');
+          } else {
+            ColFlag = 0
+            // console.log('NOT EMPTY');
+            logger.log('error', 'Remaining cols are not empty.')
+            j = i = -1
+          }
+        }
+      }
+    }
+    if (i === OutputfileArray.length && ColFlag === 1) {
+      return 1
+    } else return 0
+  },
+  sortAlphaNum: function (a, b) {
+    const reA = /[^a-zA-Z]/g
+    const reN = /[^0-9]/g
+    const aA = a[0].replace(reA, '')
+    const bA = b[0].replace(reA, '')
+    if (aA === bA) {
+      const aN = parseInt(a[0].replace(reN, ''), 10)
+      const bN = parseInt(b[0].replace(reN, ''), 10)
+      return aN === bN ? 0 : aN > bN ? 1 : -1
+    } else {
+      return aA > bA ? 1 : -1
+    }
+  },
+  decryptFile: async function (
+    encryptedFolder,
+    privateKeyfile,
+    passphrase,
+    decryptedFolder
+  ) {
+    const encryptedMessage = fs.readFileSync(encryptedFolder)
+    const privateKeyArmored = fs.readFileSync(privateKeyfile)
+
+    // read private key
+    const {
+      keys: [privateKey]
+    } = await openpgp.key.readArmored([privateKeyArmored])
+    // unlock private key
+    await privateKey.decrypt(passphrase)
+
+    const { data: decrypted } = await openpgp.decrypt({
+      message: await openpgp.message.read(encryptedMessage),
+      format: 'binary', // parse armored message
+      privateKeys: [privateKey] // keys for decryption
+    })
+
+    // write out decrypted message
+    fs.writeFileSync(decryptedFolder, decrypted)
   }
 }
 
