@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="18" failures="0" time="6.496">
-  <testsuite name="ETL tests" errors="0" failures="0" skipped="0" timestamp="2020-05-14T03:34:49" time="6.456" tests="18">
-    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.003">
+<testsuites name="jest tests" tests="18" failures="0" time="9.875">
+  <testsuite name="ETL tests" errors="0" failures="0" skipped="0" timestamp="2020-05-14T03:45:13" time="9.833" tests="18">
+    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.004">
     </testcase>
     <testcase classname="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" time="0.001">
+    <testcase classname="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Number of columns in output file should be 10" name="ETL tests File comparison tests of customer file Number of columns in output file should be 10" time="0">
+    <testcase classname="ETL tests File comparison tests of customer file Number of columns in output file should be 10" name="ETL tests File comparison tests of customer file Number of columns in output file should be 10" time="0.001">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
+    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0">
     </testcase>
     <testcase classname="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0">
+    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0.001">
     </testcase>
     <testcase classname="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
     </testcase>
@@ -69,7 +69,7 @@
     </testcase>
     <testcase classname="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " name="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" name="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" time="0.001">
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" name="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" time="0">
     </testcase>
   </testsuite>
 </testsuites>

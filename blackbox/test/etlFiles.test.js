@@ -2,8 +2,8 @@
 
 const utils = require('@utils')
 const path = require('path')
-const moment = require('moment')
-const today = moment().format('YYYYMMDD')
+// const moment = require('moment')
+// const today = moment().format('YYYYMMDD')
 
 const downlaodOptionsfolder = {
   destination: path.resolve('data/encryptedFolder')
@@ -19,13 +19,11 @@ const decryptedFolder = path.resolve('data/decryptedZip.zip')
 const passphrase = 'pass1234'
 const dirName = path.resolve('data/batchFiles')
 let inputfileArray = []
-let outputfileArr = []
 let outputfileArray = []
 
 describe('ETL tests', () => {
-  /*
   beforeAll(async () => {
-    
+    jest.setTimeout(20000)
     await utils.downloadFile(
       process.env.GS_KEY,
       process.env.GS_BUCKET_ENCRYPTED,
@@ -46,13 +44,10 @@ describe('ETL tests', () => {
       decryptedFolder
     )
     await utils.unzipFolder(decryptedFolder, dirName)
-    
   })
-  */
+
   describe('File comparison tests of customer file', () => {
- 
     beforeAll(async () => {
-       
       const downlaodOptionsinput = {
         destination: path.resolve('data/customer.csv')
       }
@@ -64,7 +59,7 @@ describe('ETL tests', () => {
         inputFileName,
         downlaodOptionsinput
       )
-      
+
       const csvfileInput = path.resolve('data/customer.csv')
       const csvfileOutput = path.resolve('data/customerOutput.csv')
       const srcOutputFile = utils
@@ -76,7 +71,6 @@ describe('ETL tests', () => {
       // outputfileArray = utils.deleteRow(outputfileArr, outputfileArr.length)
       outputfileArray = outputfileArray.sort(utils.sortAlphaNum)
       inputfileArray = inputfileArray.sort(utils.sortAlphaNum)
-
     })
 
     test('date format in output header should be YYYYMMDD', () => {
@@ -110,8 +104,11 @@ describe('ETL tests', () => {
       expect(mappingCheck).toBeTruthy()
     })
     test('Unmapped columns of output file should be blank', () => {
-      
-      const blankColCheck = utils.blankColCheck(10,[6,7,8,9], outputfileArray)
+      const blankColCheck = utils.blankColCheck(
+        10,
+        [6, 7, 8, 9],
+        outputfileArray
+      )
       expect(blankColCheck).toBeTruthy()
     })
   })
@@ -130,7 +127,9 @@ describe('ETL tests', () => {
       )
       const csvfileInput = path.resolve('data/deposit_account.csv')
       const csvfileOutput = path.resolve('data/deposit_accountOutput.csv')
-      const srcOutputFile = utils.getFilePath(dirName, outputFileName).toString()
+      const srcOutputFile = utils
+        .getFilePath(dirName, outputFileName)
+        .toString()
       await utils.convertTocsv(srcOutputFile, csvfileOutput)
       inputfileArray = await utils.csvToArray(csvfileInput)
       outputfileArray = await utils.csvToArray(csvfileOutput)
@@ -185,7 +184,11 @@ describe('ETL tests', () => {
     GOOD STANDING_
     REGION CODE_
     PRODUCT CODE_`, () => {
-      const blankColCheck = utils.blankColCheck(18, [4,5,9,10,13,14,16,17], outputfileArray)
+      const blankColCheck = utils.blankColCheck(
+        18,
+        [4, 5, 9, 10, 13, 14, 16, 17],
+        outputfileArray
+      )
       expect(blankColCheck).toBeTruthy()
     })
   })
@@ -247,12 +250,10 @@ describe('ETL tests', () => {
     test('mandatory columns of the file should be populated', () => {
       const mappingCheck = utils.mandatoryColCheck(
         3,
-        [0,1,2],
-        outputfileArray     
+        [0, 1, 2],
+        outputfileArray
       )
       expect(mappingCheck).toBeTruthy()
     })
-
-    
   })
 })

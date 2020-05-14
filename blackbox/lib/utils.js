@@ -194,24 +194,28 @@ var methods = {
       colsOutput !== 0
     ) {
       for (var i = 1; i < OutputfileArray.length; i++) {
-        if ((OutputfileArray[i][0] === InputfileArray[i][0]) &&
-        (OutputfileArray[i][1] === InputfileArray[i][1]) &&
-        (OutputfileArray[i][2] === 'ACTIVE') &&
-        (OutputfileArray[i][3] === moment(InputfileArray[i][3]).format('YYYYMMDD')) &&
-        (OutputfileArray[i][6] === moment(InputfileArray[i][4]).format('YYYYMMDD')) &&
-        (OutputfileArray[i][7] === InputfileArray[i][5]) &&
-        (OutputfileArray[i][11] === 'FIXED_DAY') &&
-        (OutputfileArray[i][8] === InputfileArray[i][6]) &&
-        (OutputfileArray[i][12] === InputfileArray[i][7]) &&
-        (OutputfileArray[i][15] === moment(InputfileArray[i][8]).format('YYYYMMDD'))) {
-            passFlag = 1
-          } else {
-            console.log(i)
-            passFlag = 0
-            logger.log('error', 'Mismatch in data found in row ' + i)
-            break
-          }
-        
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][1] === InputfileArray[i][1] &&
+          OutputfileArray[i][2] === 'ACTIVE' &&
+          OutputfileArray[i][3] ===
+            moment(InputfileArray[i][3]).format('YYYYMMDD') &&
+          OutputfileArray[i][6] ===
+            moment(InputfileArray[i][4]).format('YYYYMMDD') &&
+          OutputfileArray[i][7] === InputfileArray[i][5] &&
+          OutputfileArray[i][11] === 'FIXED_DAY' &&
+          OutputfileArray[i][8] === InputfileArray[i][6] &&
+          OutputfileArray[i][12] === InputfileArray[i][7] &&
+          OutputfileArray[i][15] ===
+            moment(InputfileArray[i][8]).format('YYYYMMDD')
+        ) {
+          passFlag = 1
+        } else {
+          console.log(i)
+          passFlag = 0
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
       }
       if (i === OutputfileArray.length && passFlag === 1) {
         return 1
@@ -219,7 +223,6 @@ var methods = {
     }
   },
 
-  
   sortAlphaNum: function (a, b) {
     const reA = /[^a-zA-Z]/g
     const reN = /[^0-9]/g
@@ -258,18 +261,21 @@ var methods = {
     // write out decrypted message
     fs.writeFileSync(decryptedFolder, decrypted)
   },
-  blankColCheck: function(colsOutput,blankColArray, OutputfileArray) {
+  blankColCheck: function (colsOutput, blankColArray, OutputfileArray) {
     if (OutputfileArray.length !== 0 && colsOutput !== 0) {
       for (var i = 1; i < OutputfileArray.length; i++) {
-        for (var j = 0;j<blankColArray.length;j++){
-        //blankColArray.forEach(function(j) {
+        for (var j = 0; j < blankColArray.length; j++) {
+          // blankColArray.forEach(function(j) {
           if (OutputfileArray[i][blankColArray[j]] === '') {
             ColFlag = 1
             // console.log('EMPTY');
           } else {
             ColFlag = 0
             // console.log('NOT EMPTY');
-            console.log('error', 'Column '+blankColArray[j]+' of row '+i+' is not blank')
+            console.log(
+              'error',
+              'Column ' + blankColArray[j] + ' of row ' + i + ' is not blank'
+            )
             j = i = -1
           }
         }
@@ -279,18 +285,21 @@ var methods = {
       return 1
     } else return 0
   },
-  mandatoryColCheck: function(colsOutput,ColArray, OutputfileArray) {
+  mandatoryColCheck: function (colsOutput, ColArray, OutputfileArray) {
     if (OutputfileArray.length !== 0 && colsOutput !== 0) {
       for (var i = 1; i < OutputfileArray.length; i++) {
-        for (var j = 0;j<ColArray.length;j++){
-        //blankColArray.forEach(function(j) {
+        for (var j = 0; j < ColArray.length; j++) {
+          // blankColArray.forEach(function(j) {
           if (OutputfileArray[i][ColArray[j]] !== '') {
             ColFlag = 1
             // console.log('EMPTY');
           } else {
             ColFlag = 0
             // console.log('NOT EMPTY');
-            console.log('error', 'Column '+ColArray[j]+' of row '+i+' is blank')
+            console.log(
+              'error',
+              'Column ' + ColArray[j] + ' of row ' + i + ' is blank'
+            )
             j = i = -1
           }
         }
