@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="21" failures="3" time="4.24">
-  <testsuite name="File comparison tests of customer file" errors="0" failures="0" skipped="0" timestamp="2020-05-07T01:22:09" time="3.853" tests="6">
-    <testcase classname="File comparison tests of customer file date format in output header should be YYYYMMDD" name="File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.005">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Number of records in Input and output file should be equal" name="File comparison tests of customer file Number of records in Input and output file should be equal" time="0">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Number of columns in output file should be 10" name="File comparison tests of customer file Number of columns in output file should be 10" time="0">
-    </testcase>
-    <testcase classname="File comparison tests of customer file mapping of input file to output file should be correct" name="File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
-    </testcase>
-    <testcase classname="File comparison tests of customer file Unmapped columns of output file should be blank" name="File comparison tests of customer file Unmapped columns of output file should be blank" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="ETL tests" errors="0" failures="3" skipped="0" timestamp="2020-05-07T01:22:09" time="3.935" tests="15">
-    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.004">
+<testsuites name="jest tests" tests="18" failures="0" time="6.496">
+  <testsuite name="ETL tests" errors="0" failures="0" skipped="0" timestamp="2020-05-14T03:34:49" time="6.456" tests="18">
+    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.003">
     </testcase>
     <testcase classname="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
     </testcase>
@@ -23,49 +9,55 @@
     </testcase>
     <testcase classname="ETL tests File comparison tests of customer file Number of columns in output file should be 10" name="ETL tests File comparison tests of customer file Number of columns in output file should be 10" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0">
+    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" time="0.001">
+    <testcase classname="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of customer file Unmapped columns of output file should be blank" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0.002">
-      <failure>Error: expect(received).toBeTruthy()
-
-Received: false
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFiles.test.js:117:25)
-    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0">
     </testcase>
     <testcase classname="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: &quot;#,undefined,4&quot;
-Received: &quot;&quot;
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFiles.test.js:123:28)
-    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" time="0.001">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 5
-Received: 1
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFiles.test.js:128:26)
-    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    <testcase classname="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file Number of columns in output file should be fourteen" name="ETL tests File comparison tests of deposit_account file Number of columns in output file should be fourteen" time="0">
+    <testcase classname="ETL tests File comparison tests of deposit_account file Number of columns in output file should be eighteen" name="ETL tests File comparison tests of deposit_account file Number of columns in output file should be eighteen" time="0">
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of deposit_account file mapping of input file to output file should be correct:
+    X784219_KEY	--&gt; ACCOUNT IDENTIFIER_
+    X784219_PRDCT_CODE	--&gt; PRODUCT CODE_
+    X784219_ACT_STATUS	--&gt; STATUS_
+    X784219_DATE_OPENED	--&gt; OPENING DATE_
+    X784219_DATE_CLOSED	--&gt; CLOSING DATE_
+    X784219_BSB	--&gt; BRANCH IDENTIFIER_
+    X784219_AU_ATO_ACCOUNT_TYPE	--&gt; RETIREMENT ACCOUNT_
+    X784219_SV_CHG_CYCLE_CODE	--&gt; DAY OF THE MONTH_
+    X784219_DATE_LAST_SUBPRDCT_CHG --&gt;	LAST CONVERSION DATE_" name="ETL tests File comparison tests of deposit_account file mapping of input file to output file should be correct:
+    X784219_KEY	--&gt; ACCOUNT IDENTIFIER_
+    X784219_PRDCT_CODE	--&gt; PRODUCT CODE_
+    X784219_ACT_STATUS	--&gt; STATUS_
+    X784219_DATE_OPENED	--&gt; OPENING DATE_
+    X784219_DATE_CLOSED	--&gt; CLOSING DATE_
+    X784219_BSB	--&gt; BRANCH IDENTIFIER_
+    X784219_AU_ATO_ACCOUNT_TYPE	--&gt; RETIREMENT ACCOUNT_
+    X784219_SV_CHG_CYCLE_CODE	--&gt; DAY OF THE MONTH_
+    X784219_DATE_LAST_SUBPRDCT_CHG --&gt;	LAST CONVERSION DATE_" time="0.005">
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of deposit_account file Unmapped columns of output file should be blank:
+    FIRST FINANCIAL ACTIVITY DATE_
+    OVERDRAWN DATE_
+    PAYROLL ACCOUNT_
+    ACCOUNT COHORT_
+    ACCOUNT CYCLE END DATE_
+    GOOD STANDING_
+    REGION CODE_
+    PRODUCT CODE_" name="ETL tests File comparison tests of deposit_account file Unmapped columns of output file should be blank:
+    FIRST FINANCIAL ACTIVITY DATE_
+    OVERDRAWN DATE_
+    PAYROLL ACCOUNT_
+    ACCOUNT COHORT_
+    ACCOUNT CYCLE END DATE_
+    GOOD STANDING_
+    REGION CODE_
+    PRODUCT CODE_" time="0">
     </testcase>
     <testcase classname="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" time="0.001">
     </testcase>
@@ -73,9 +65,11 @@ Received: 1
     </testcase>
     <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" name="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" time="0.001">
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" name="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" time="0">
     </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct" name="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct" time="0">
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " name="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " time="0">
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" name="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

@@ -1,3 +1,4 @@
+/*
 'use strict'
 
 const utils = require('@utils')
@@ -81,3 +82,5 @@ describe('File comparison tests of customer file', () => {
     expect(blankColCheck).toBeTruthy()
   })
 })
+
+*/
