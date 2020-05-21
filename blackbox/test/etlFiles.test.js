@@ -2,8 +2,8 @@
 
 const utils = require('@utils')
 const path = require('path')
-// const moment = require('moment')
-// const today = moment().format('YYYYMMDD')
+const moment = require('moment')
+const today = moment().format('YYYYMMDD') // `20200521`
 
 const downlaodOptionsfolder = {
   destination: path.resolve('data/encryptedFolder')
@@ -18,16 +18,39 @@ const privateKeyfile = path.resolve('data/key-private.asc')
 const decryptedFolder = path.resolve('data/decryptedZip.zip')
 const passphrase = 'pass1234'
 const dirName = path.resolve('data/batchFiles')
+let mlpFiles = [
+  'CUSTOMER_' + today + '.DAT',
+  'DEPOSIT_ACCOUNT_' + today + '.DAT',
+  'ACCT_CUST_REL_' + today + '.DAT',
+  'ACCOUNT_BALANCE_' + today + '.DAT',
+  'BRANCH_' + today + '.DAT',
+  'CREDIT_CARD_ACCOUNT_' + today + '.DAT',
+  'CREDIT_CARD_TXN_' + today + '.DAT',
+  'CUSTOMER_MERGE_' + today + '.DAT',
+  'CUSTOMER_SERVICE_' + today + '.DAT',
+  'DEPOSIT_TXN_' + today + '.DAT',
+  'LOAN_ACCOUNT_' + today + '.DAT',
+  'LOAN_TXN_' + today + '.DAT',
+  'OFFER_ENROLLMENT_' + today + '.DAT',
+  'MANUAL_EXCEPTION_' + today + '.DAT',
+  'MUTUAL_FUNDS_ACCOUNT_' + today + '.DAT',
+  'PACKAGE_ACCOUNT_' + today + '.DAT',
+  'PACKAGE_SUBSCRIPTION_' + today + '.DAT',
+  'TIME_DEPOSIT_ACCOUNT_' + today + '.DAT'
+]
+
+// let outputfileArr = []
 let inputfileArray = []
 let outputfileArray = []
 
 describe('ETL tests', () => {
   beforeAll(async () => {
     jest.setTimeout(20000)
+
     await utils.downloadFile(
       process.env.GS_KEY,
       process.env.GS_BUCKET_ENCRYPTED,
-      'target/INPUT_20200513.asc',
+      'target/INPUT_' + today + '.ZIP.ASC',
       downlaodOptionsfolder
     )
     await utils.downloadFile(
@@ -45,14 +68,26 @@ describe('ETL tests', () => {
     )
     await utils.unzipFolder(decryptedFolder, dirName)
   })
-
+  describe('Directory check for correctness', () => {
+    let arrayOfFiles = []
+    test('Directory check for correctness - 18 files', () => {
+      expect(utils.getAllDirFiles(dirName, arrayOfFiles).length).toEqual(18)
+    })
+    test('Name of files should follow naming convention', () => {
+      arrayOfFiles = arrayOfFiles.sort()
+      mlpFiles = mlpFiles.sort()
+      expect(
+        JSON.stringify(arrayOfFiles) === JSON.stringify(mlpFiles)
+      ).toBeTruthy()
+    })
+  })
   describe('File comparison tests of customer file', () => {
     beforeAll(async () => {
       const downlaodOptionsinput = {
         destination: path.resolve('data/customer.csv')
       }
       const inputFileName = 'source/customer.csv'
-      const outputFileName = `CUSTOMER_20200513.dat`
+      const outputFileName = 'CUSTOMER_' + today + '.DAT'
       await utils.downloadFile(
         process.env.GS_KEY,
         process.env.GS_BUCKET_NAME_INPUT,
@@ -82,7 +117,7 @@ describe('ETL tests', () => {
     test('Header of output file "#|YYYYMMDD|no of records ,"', () => {
       const headerOutput = outputfileArray[0].toString()
       const expHeader =
-        '#,' + outputfileArray[0][1] + ',' + (inputfileArray.length - 1)
+        '#,' + outputfileArray[0][1] + ',' + (outputfileArray.length - 1)
       expect(headerOutput).toEqual(expHeader)
     })
 
@@ -103,13 +138,23 @@ describe('ETL tests', () => {
       )
       expect(mappingCheck).toBeTruthy()
     })
-    test('Unmapped columns of output file should be blank', () => {
+    test(`Unmapped columns of output file should be blank:
+          CUSTOMER SEGMENT CODE_
+          CUSTOMER COHORT CATEGORY CODE_
+          CUSTOMER COHORT CODE_
+          BRANCH IDENTIFIER_`, () => {
       const blankColCheck = utils.blankColCheck(
         10,
         [6, 7, 8, 9],
         outputfileArray
       )
       expect(blankColCheck).toBeTruthy()
+    })
+    test(`mandatory columns of the file should be populated
+          CUSTOMER IDENTIFIER_
+          CUSTOMER STATUS_`, () => {
+      const mappingCheck = utils.mandatoryColCheck(10, [0, 3], outputfileArray)
+      expect(mappingCheck).toBeTruthy()
     })
   })
   describe('File comparison tests of deposit_account file', () => {
@@ -118,7 +163,7 @@ describe('ETL tests', () => {
         destination: path.resolve('data/deposit_account.csv')
       }
       const inputFileName = 'source/deposit_account.csv'
-      const outputFileName = 'DEPOSIT_ACCOUNT_20200513.dat'
+      const outputFileName = 'DEPOSIT_ACCOUNT_' + today + '.DAT'
       await utils.downloadFile(
         process.env.GS_KEY,
         process.env.GS_BUCKET_NAME_INPUT,
@@ -159,15 +204,15 @@ describe('ETL tests', () => {
       expect(columnCheck).toBeTruthy()
     })
     test(`mapping of input file to output file should be correct:
-    X784219_KEY	--> ACCOUNT IDENTIFIER_
-    X784219_PRDCT_CODE	--> PRODUCT CODE_
-    X784219_ACT_STATUS	--> STATUS_
-    X784219_DATE_OPENED	--> OPENING DATE_
-    X784219_DATE_CLOSED	--> CLOSING DATE_
-    X784219_BSB	--> BRANCH IDENTIFIER_
-    X784219_AU_ATO_ACCOUNT_TYPE	--> RETIREMENT ACCOUNT_
-    X784219_SV_CHG_CYCLE_CODE	--> DAY OF THE MONTH_
-    X784219_DATE_LAST_SUBPRDCT_CHG -->	LAST CONVERSION DATE_`, () => {
+          X784219_KEY	--> ACCOUNT IDENTIFIER_
+          X784219_PRDCT_CODE	--> PRODUCT CODE_
+          X784219_ACT_STATUS	--> STATUS_
+          X784219_DATE_OPENED	--> OPENING DATE_
+          X784219_DATE_CLOSED	--> CLOSING DATE_
+          X784219_BSB	--> BRANCH IDENTIFIER_
+          X784219_AU_ATO_ACCOUNT_TYPE	--> RETIREMENT ACCOUNT_
+          X784219_SV_CHG_CYCLE_CODE	--> DAY OF THE MONTH_
+          X784219_DATE_LAST_SUBPRDCT_CHG -->	LAST CONVERSION DATE_`, () => {
       const mappingCheck = utils.mappingDepositAct(
         18,
         outputfileArray,
@@ -176,14 +221,14 @@ describe('ETL tests', () => {
       expect(mappingCheck).toBeTruthy()
     })
     test(`Unmapped columns of output file should be blank:
-    FIRST FINANCIAL ACTIVITY DATE_
-    OVERDRAWN DATE_
-    PAYROLL ACCOUNT_
-    ACCOUNT COHORT_
-    ACCOUNT CYCLE END DATE_
-    GOOD STANDING_
-    REGION CODE_
-    PRODUCT CODE_`, () => {
+          FIRST FINANCIAL ACTIVITY DATE_
+          OVERDRAWN DATE_
+          PAYROLL ACCOUNT_
+          ACCOUNT COHORT_
+          ACCOUNT CYCLE END DATE_
+          GOOD STANDING_
+          REGION CODE_
+          PRODUCT CODE_`, () => {
       const blankColCheck = utils.blankColCheck(
         18,
         [4, 5, 9, 10, 13, 14, 16, 17],
@@ -199,20 +244,21 @@ describe('ETL tests', () => {
         destination: path.resolve('data/account_cust_rel.csv')
       }
       const inputFileName = 'source/account_customer_relationship.csv'
-      const outputFileName = `ACCT_CUST_REL_20200513.dat`
+      const outputFileName = 'ACCT_CUST_REL_' + today + '.DAT'
+
       await utils.downloadFile(
         process.env.GS_KEY,
         process.env.GS_BUCKET_NAME_INPUT,
         inputFileName,
         downlaodOptionsinput
       )
+
       // utils.checkFile(csvfileOutput)
       const csvfileInput = path.resolve('data/account_cust_rel.csv')
       const csvfileOutput = path.resolve('data/acc_cust_relOutput.csv')
       const srcOutputFile = utils
         .getFilePath(dirName, outputFileName)
         .toString()
-      console.log(srcOutputFile)
       await utils.convertTocsv(srcOutputFile, csvfileOutput)
       inputfileArray = await utils.csvToArray(csvfileInput)
       outputfileArray = await utils.csvToArray(csvfileOutput)

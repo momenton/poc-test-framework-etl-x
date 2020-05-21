@@ -98,6 +98,21 @@ var methods = {
     })
     return results
   },
+  getAllDirFiles: function (dirPath, arrayOfFiles) {
+    const files = fs.readdirSync(dirPath)
+
+    arrayOfFiles = arrayOfFiles || []
+
+    files.forEach(function (file) {
+      // if (fs.statSync(dirPath + '/' + file).isDirectory()) {
+      // arrayOfFiles = getAllDirFiles(dirPath + '/' + file, arrayOfFiles)
+      // } else {
+      arrayOfFiles.push(file)
+      // }
+    })
+
+    return arrayOfFiles
+  },
   mappingAcctCustRel: function (colsOutput, OutputfileArray, InputfileArray) {
     if (
       OutputfileArray.length !== 0 &&
@@ -203,14 +218,31 @@ var methods = {
           OutputfileArray[i][6] ===
             moment(InputfileArray[i][4]).format('YYYYMMDD') &&
           OutputfileArray[i][7] === InputfileArray[i][5] &&
-          OutputfileArray[i][11] === 'FIXED_DAY' &&
           OutputfileArray[i][8] === InputfileArray[i][6] &&
-          OutputfileArray[i][12] === InputfileArray[i][7] &&
           OutputfileArray[i][15] ===
-            moment(InputfileArray[i][8]).format('YYYYMMDD')
+            moment(InputfileArray[i][8]).format('YYYYMMDD') &&
+          ((InputfileArray[i][7] === '' &&
+            OutputfileArray[i][11] === 'CALENDAR' &&
+            OutputfileArray[i][12] === '') ||
+            (InputfileArray[i][7] === 'EM' &&
+              OutputfileArray[i][11] === 'CALENDAR' &&
+              OutputfileArray[i][12] === '') ||
+            (InputfileArray[i][7] === '00' &&
+              OutputfileArray[i][11] === 'CALENDAR' &&
+              OutputfileArray[i][12] === '') ||
+            (InputfileArray[i][7] === 'IM' &&
+              OutputfileArray[i][11] === 'FIXED_DAY' &&
+              Date(OutputfileArray[i][12]) ===
+                String(moment(InputfileArray[i][3]).date())) ||
+            (InputfileArray[i][7] <= 31 &&
+              InputfileArray[i][7] >= 1 &&
+              OutputfileArray[i][11] === 'FIXED_DAY' &&
+              OutputfileArray[i][12] === InputfileArray[i][7]))
         ) {
           passFlag = 1
         } else {
+          console.log(OutputfileArray[i][12])
+          console.log(moment(InputfileArray[i][3]).date())
           console.log(i)
           passFlag = 0
           logger.log('error', 'Mismatch in data found in row ' + i)
