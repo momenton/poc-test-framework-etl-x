@@ -4,13 +4,10 @@ const utils = require('@utils')
 const path = require('path')
 const moment = require('moment')
 const today = moment().format('YYYYMMDD') // `20200521`
-/*
-if (process.env === 'dev') {
-  const data = path.resolve('data/dev')
-}
-*/
+const testData = process.env.TEST_DATA
 
-const dirName = path.resolve('data/dev/batchFiles')
+
+const dirName = testData+'batchFiles'   // path.resolve('data/dev/batchFiles')
 let mlpFiles = [
   'CUSTOMER_' + today + '.DAT',
   'DEPOSIT_ACCOUNT_' + today + '.DAT',
@@ -39,7 +36,7 @@ let outputfileArray = []
 describe('ETL tests', () => {
   jest.setTimeout(20000)
 
-  describe('Directory check for correctness', () => {
+  describe.only('Directory check for correctness', () => {
     let arrayOfFiles = []
     test('Directory check for correctness - 18 files', () => {
       expect(utils.getAllDirFiles(dirName, arrayOfFiles).length).toEqual(18)
