@@ -4,9 +4,11 @@ const utils = require('@utils')
 const path = require('path')
 const moment = require('moment')
 const today = moment().format('YYYYMMDD') // `20200521`
-if (process.env === 'dev'){
+/*
+if (process.env === 'dev') {
   const data = path.resolve('data/dev')
 }
+*/
 
 const dirName = path.resolve('data/dev/batchFiles')
 let mlpFiles = [
@@ -36,7 +38,7 @@ let outputfileArray = []
 
 describe('ETL tests', () => {
   jest.setTimeout(20000)
-  
+
   describe('Directory check for correctness', () => {
     let arrayOfFiles = []
     test('Directory check for correctness - 18 files', () => {
@@ -52,7 +54,6 @@ describe('ETL tests', () => {
   })
   describe('File comparison tests of customer file', () => {
     beforeAll(async () => {
-    
       const outputFileName = 'CUSTOMER_' + today + '.DAT'
       const csvfileInput = path.resolve('data/dev/customer.csv')
       const csvfileOutput = path.resolve('data/dev/customerOutput.csv')
@@ -118,7 +119,6 @@ describe('ETL tests', () => {
   })
   describe('File comparison tests of deposit_account file', () => {
     beforeAll(async () => {
-      
       const outputFileName = 'DEPOSIT_ACCOUNT_' + today + '.DAT'
       const csvfileInput = path.resolve('data/dev/deposit_account.csv')
       const csvfileOutput = path.resolve('data/dev/deposit_accountOutput.csv')
