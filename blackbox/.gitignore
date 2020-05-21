@@ -5,4 +5,5 @@
 /lib/utils_temp.js
 /info.log
 /test/tempTest/**
-/data/sit/**
+/data/sit/*
+!/data/sit/.gitkeep 
