@@ -16,7 +16,6 @@ const downlaodOptionskey = {
 const encryptedFolder = path.resolve('data/encryptedFolder')
 const privateKeyfile = path.resolve('data/key-private.asc')
 const decryptedFolder = path.resolve('data/decryptedZip.zip')
-const passphrase = 'pass1234'
 const dirName = path.resolve('data/batchFiles')
 let mlpFiles = [
   'CUSTOMER_' + today + '.DAT',
@@ -63,7 +62,7 @@ describe('ETL tests', () => {
     await utils.decryptFile(
       encryptedFolder,
       privateKeyfile,
-      passphrase,
+      process.env.PASSPHRASE,
       decryptedFolder
     )
     await utils.unzipFolder(decryptedFolder, dirName)

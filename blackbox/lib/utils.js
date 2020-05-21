@@ -241,9 +241,6 @@ var methods = {
         ) {
           passFlag = 1
         } else {
-          console.log(OutputfileArray[i][12])
-          console.log(moment(InputfileArray[i][3]).date())
-          console.log(i)
           passFlag = 0
           logger.log('error', 'Mismatch in data found in row ' + i)
           break
