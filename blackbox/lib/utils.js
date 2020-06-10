@@ -8,7 +8,7 @@ const AdmZip = require('adm-zip')
 const path = require('path')
 const openpgp = require('openpgp')
 
-let passFlag = 0
+var passFlag
 let ColFlag = 0
 var rows
 var rowRecord
@@ -40,10 +40,15 @@ var methods = {
   validDateFormat: function (dateStr) {
     return moment(dateStr, 'YYYYMMDD').isValid()
   },
-  arraySort: async function (OutputfileArray) {
+  arraySort: async function (OutputfileArray, j) {
     return OutputfileArray.sort(function (a, b) {
-      return a[0] - b[0]
+      return a[j] - b[j]
     })
+  },
+  deleteRow: function (arr, row) {
+    arr = arr.slice(0) // make copy
+    arr.splice(row - 1, 1)
+    return arr
   },
   downloadFile: async function (
     serviceKey,
@@ -64,7 +69,7 @@ var methods = {
     }
   },
   numberOfColumns: function (arrayFile, expColumn) {
-    if (arrayFile.length !== 0) {
+    if (arrayFile.length > 1) {
       for (var i = 1; i < arrayFile.length; i++) {
         if (arrayFile[i].length === expColumn) {
         } else {
@@ -75,6 +80,8 @@ var methods = {
           break
         }
       }
+    } else {
+      logger.log('info', 'Empty file with header')
     }
     if (i === arrayFile.length) {
       return 1
@@ -98,6 +105,19 @@ var methods = {
     })
     return results
   },
+  getFile: async function (path, timeout) {
+    return new Promise((resolve, reject) => {
+      timeout = setInterval(function () {
+        const file = path
+        const fileExists = fs.existsSync(file)
+        if (fileExists) {
+          // console.log('file exists')
+          clearInterval(timeout)
+          return resolve(path)
+        }
+      }, timeout)
+    })
+  },
   getAllDirFiles: function (dirPath, arrayOfFiles) {
     const files = fs.readdirSync(dirPath)
 
@@ -112,6 +132,48 @@ var methods = {
     })
 
     return arrayOfFiles
+  },
+  fwTocsv: function (IN_FILE, OUT_FILE) {
+    const readline = require('readline')
+    // fs       = require('fs');
+    // const IN_FILE = 'in1.txt',
+    // OUT_FILE = 'out.csv',
+    const BUFFER_LINES = 200
+    const RANGES = [
+      [0, 10],
+      [16, 20],
+      [41, 23],
+      [69, 29]
+    ]
+    // const RANGES = [[0, 6], [6, 20],[26, 2] ,[29, 3]];
+    const instream = fs.createReadStream(IN_FILE)
+    const outstream = fs.createWriteStream(OUT_FILE)
+    const rl = readline.createInterface({ input: instream })
+    let buffer = ''
+    let bufferedLines = 0
+    instream.on('error', e => {
+      console.error(e.message)
+    })
+    outstream.on('error', e => {
+      console.error(e.message)
+    })
+    rl.on('line', line => {
+      const parts = []
+      for (const range of RANGES)
+        parts.push(line.substr(range[0], range[1]).trim())
+
+      buffer += parts.join(',') + '\n'
+
+      if (++bufferedLines === BUFFER_LINES) {
+        outstream.write(buffer)
+        bufferedLines = 0
+        buffer = ''
+      }
+    })
+    rl.on('close', () => {
+      outstream.write(buffer)
+      outstream.close()
+    })
   },
   mappingAcctCustRel: function (colsOutput, OutputfileArray, InputfileArray) {
     if (
@@ -153,8 +215,50 @@ var methods = {
       } else return 0
     }
   },
+  mappingAccountBalance: function (
+    colsOutput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][1] ===
+            moment(InputfileArray[i][1]).format('YYYYMMDD') &&
+          ((InputfileArray[i][2] === '' && OutputfileArray[i][3] === '') ||
+            (OutputfileArray[i][2] === InputfileArray[i][2] &&
+            OutputfileArray[i][3] === InputfileArray[i][2] >= 0
+              ? 'CR'
+              : 'DR')) &&
+          ((InputfileArray[i][3] === '' && OutputfileArray[i][4] === '') ||
+            (OutputfileArray[i][4] === InputfileArray[i][3] &&
+            OutputfileArray[i][5] === InputfileArray[i][3] >= 0
+              ? 'CR'
+              : 'DR'))
+        ) {
+          passFlag = 1
+        } else {
+          passFlag = 0
 
-  mappingCustomer: function (
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    } else {
+      logger.log('info', 'empty file')
+      return 0
+    }
+  },
+
+  mappingPackageAccount: function (
     colsOutput,
     colsInput,
     OutputfileArray,
@@ -167,34 +271,18 @@ var methods = {
       colsInput !== 0
     ) {
       for (var i = 1; i < OutputfileArray.length; i++) {
-        for (var j = 0; j < colsInput; j++) {
-          if (
-            OutputfileArray[i][j] === InputfileArray[i][j] ||
-            j === 3 ||
-            j === 5
-          ) {
-            if (
-              OutputfileArray[i][3] === 'ACTIVE' &&
-              ((InputfileArray[i][5] === '' && OutputfileArray[i][5] === '') ||
-                (InputfileArray[i][5] === 'N' &&
-                  OutputfileArray[i][5] === '') ||
-                (InputfileArray[i][5] === 'Y' &&
-                  OutputfileArray[i][5] === 'Active'))
-            ) {
-              passFlag = 1
-            } else {
-              passFlag = 0
-              // console.log('MISMATCH');
-              logger.log('error', 'Mismatch in data found in row ' + i)
-              j = -1
-              i = -1
-            }
-          } else {
-            passFlag = 0
-            // console.log('MISMATCH');
-            logger.log('error', 'Mismatch in data found in row ' + i)
-            break
-          }
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][1] &&
+          OutputfileArray[i][1] === InputfileArray[i][0] &&
+          OutputfileArray[i][2] === InputfileArray[i][2] &&
+          OutputfileArray[i][3] ===
+            moment(InputfileArray[i][3]).format('YYYYMMDD')
+        ) {
+          passFlag = 1
+        } else {
+          passFlag = 0
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
         }
       }
       if (i === OutputfileArray.length && passFlag === 1) {
@@ -291,7 +379,11 @@ var methods = {
     fs.writeFileSync(decryptedFolder, decrypted)
   },
   blankColCheck: function (colsOutput, blankColArray, OutputfileArray) {
-    if (OutputfileArray.length !== 0 && colsOutput !== 0) {
+    if (
+      OutputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      blankColArray.length !== 0
+    ) {
       for (var i = 1; i < OutputfileArray.length; i++) {
         for (var j = 0; j < blankColArray.length; j++) {
           // blankColArray.forEach(function(j) {
@@ -301,7 +393,7 @@ var methods = {
           } else {
             ColFlag = 0
             // console.log('NOT EMPTY');
-            console.log(
+            logger.log(
               'error',
               'Column ' + blankColArray[j] + ' of row ' + i + ' is not blank'
             )
@@ -309,13 +401,20 @@ var methods = {
           }
         }
       }
+    } else {
+      logger.log('info', 'No unmapped columns')
+      return 1
     }
     if (i === OutputfileArray.length && ColFlag === 1) {
       return 1
     } else return 0
   },
   mandatoryColCheck: function (colsOutput, ColArray, OutputfileArray) {
-    if (OutputfileArray.length !== 0 && colsOutput !== 0) {
+    if (
+      OutputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      ColArray.length !== 0
+    ) {
       for (var i = 1; i < OutputfileArray.length; i++) {
         for (var j = 0; j < ColArray.length; j++) {
           // blankColArray.forEach(function(j) {
@@ -325,7 +424,7 @@ var methods = {
           } else {
             ColFlag = 0
             // console.log('NOT EMPTY');
-            console.log(
+            logger.log(
               'error',
               'Column ' + ColArray[j] + ' of row ' + i + ' is blank'
             )
@@ -333,10 +432,138 @@ var methods = {
           }
         }
       }
+    } else {
+      logger.log('info', 'No unmapped columns')
+      return 1
     }
     if (i === OutputfileArray.length && ColFlag === 1) {
       return 1
     } else return 0
+  },
+
+  mappingCustomer: function (
+    colsOutput,
+    colsInput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      colsInput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][1] ===
+            (InputfileArray[i][1] === ''
+              ? ''
+              : moment(InputfileArray[i][1]).format('YYYYMMDD')) &&
+          OutputfileArray[i][2] ===
+            (InputfileArray[i][2] === ''
+              ? ''
+              : moment(InputfileArray[i][2]).format('YYYYMMDD')) &&
+          OutputfileArray[i][3] === 'ACTIVE' &&
+          OutputfileArray[i][4] ===
+            (InputfileArray[i][4] === ''
+              ? ''
+              : moment(InputfileArray[i][4]).format('YYYYMMDD'))
+        ) {
+          passFlag = 1
+        } else {
+          passFlag = 0
+          console.log(OutputfileArray[i])
+          console.log(InputfileArray[i])
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    }
+  },
+
+  mappingPackageSubscription: function (
+    colsOutput,
+    colsInput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      colsInput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][2] &&
+          OutputfileArray[i][1] ===
+            moment(InputfileArray[i][3]).format('YYYYMMDD') &&
+          OutputfileArray[i][2] === InputfileArray[i][4] &&
+          OutputfileArray[i][3] === InputfileArray[i][5] &&
+          OutputfileArray[i][4] === InputfileArray[i][0] &&
+          OutputfileArray[i][5] === 'CALENDAR'
+        ) {
+          passFlag = 1
+        } else {
+          passFlag = 0
+          console.log(OutputfileArray[i])
+          console.log(InputfileArray[i])
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    }
+  },
+  mappingDepositTransaction: function (
+    colsOutput,
+    colsInput,
+    OutputfileArray,
+    InputfileArray
+  ) {
+    if (
+      OutputfileArray.length !== 0 &&
+      InputfileArray.length !== 0 &&
+      colsOutput !== 0 &&
+      colsInput !== 0
+    ) {
+      for (var i = 1; i < OutputfileArray.length; i++) {
+        if (
+          OutputfileArray[i][0] === InputfileArray[i][0] &&
+          OutputfileArray[i][1] === InputfileArray[i][1] &&
+          OutputfileArray[i][2] === InputfileArray[i][2] &&
+          OutputfileArray[i][4] ===
+            moment(InputfileArray[i][4]).format('YYYYMMDD') &&
+          ((OutputfileArray[i][3] === 'CR' && InputfileArray[i][3] === 'C') || (OutputfileArray[i][3] === 'DR' && InputfileArray[i][3] === 'D')) &&
+          OutputfileArray[i][5] === InputfileArray[i][5] &&
+          OutputfileArray[i][6] === InputfileArray[i][6]+InputfileArray[i][7] &&
+          OutputfileArray[i][7] === InputfileArray[i][8] &&
+          OutputfileArray[i][8] === InputfileArray[i][9] &&
+          OutputfileArray[i][9] === '' &&
+          OutputfileArray[i][10] === '' &&
+          OutputfileArray[i][11] === '' &&
+          OutputfileArray[i][12] === '' &&
+          OutputfileArray[i][13] === ''
+        ) {
+          passFlag = 1
+        } else {
+          passFlag = 0
+          console.log(OutputfileArray[i])
+          console.log(InputfileArray[i])
+          logger.log('error', 'Mismatch in data found in row ' + i)
+          break
+        }
+      }
+      if (i === OutputfileArray.length && passFlag === 1) {
+        return 1
+      } else return 0
+    }
   }
 }
 

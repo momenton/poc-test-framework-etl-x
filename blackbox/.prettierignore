@@ -2,3 +2,4 @@
 junit.xml
 /test-results/**
 /test/tempTest/**
+/allure-report/**

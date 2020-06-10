@@ -9,6 +9,7 @@ module.exports = {
   reporters: ['default', 'jest-junit'],
   moduleNameMapper: {
     '^@utils$': '<rootDir>/lib/utils.js',
+    '^@processfiles$': '<rootDir>/lib/processfiles.js',
     '^@logger$': '<rootDir>/config/logger.js'
   }
 }
