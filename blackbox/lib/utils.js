@@ -303,33 +303,36 @@ var methods = {
           OutputfileArray[i][2] === 'ACTIVE' &&
           OutputfileArray[i][3] ===
             moment(InputfileArray[i][3]).format('YYYYMMDD') &&
-          OutputfileArray[i][6] ===
-            moment(InputfileArray[i][4]).format('YYYYMMDD') &&
-          OutputfileArray[i][7] === InputfileArray[i][5] &&
-          OutputfileArray[i][8] === InputfileArray[i][6] &&
-          OutputfileArray[i][15] ===
-            moment(InputfileArray[i][8]).format('YYYYMMDD') &&
-          ((InputfileArray[i][7] === '' &&
-            OutputfileArray[i][11] === 'CALENDAR' &&
-            OutputfileArray[i][12] === '') ||
-            (InputfileArray[i][7] === 'EM' &&
-              OutputfileArray[i][11] === 'CALENDAR' &&
-              OutputfileArray[i][12] === '') ||
-            (InputfileArray[i][7] === '00' &&
-              OutputfileArray[i][11] === 'CALENDAR' &&
-              OutputfileArray[i][12] === '') ||
-            (InputfileArray[i][7] === 'IM' &&
-              OutputfileArray[i][11] === 'FIXED_DAY' &&
-              Date(OutputfileArray[i][12]) ===
-                String(moment(InputfileArray[i][3]).date())) ||
-            (InputfileArray[i][7] <= 31 &&
-              InputfileArray[i][7] >= 1 &&
-              OutputfileArray[i][11] === 'FIXED_DAY' &&
-              OutputfileArray[i][12] === InputfileArray[i][7]))
+            (OutputfileArray[i][6] ===
+              moment(InputfileArray[i][4]).format('YYYYMMDD') || (OutputfileArray[i][6] === '' && InputfileArray[i][4]===''))&&
+              OutputfileArray[i][7] === InputfileArray[i][5] &&
+              OutputfileArray[i][8] === InputfileArray[i][6] &&
+              OutputfileArray[i][15] ===
+                moment(InputfileArray[i][8]).format('YYYYMMDD') &&
+                ((InputfileArray[i][7] === '' &&
+                  OutputfileArray[i][11] === 'CALENDAR' &&
+                  OutputfileArray[i][12] === '') ||
+                  (InputfileArray[i][7] === 'EM' &&
+                    OutputfileArray[i][11] === 'CALENDAR' &&
+                    OutputfileArray[i][12] === '') ||
+                  (InputfileArray[i][7] === '00' &&
+                    OutputfileArray[i][11] === 'CALENDAR' &&
+                    OutputfileArray[i][12] === '') ||
+                  (InputfileArray[i][7] === 'IM' &&
+                    OutputfileArray[i][11] === 'FIXED_DAY' &&
+                    Date(OutputfileArray[i][12]) ===
+                      String(moment(InputfileArray[i][3]).date())) ||
+                  (InputfileArray[i][7] <= 31 &&
+                    InputfileArray[i][7] >= 1 &&
+                    OutputfileArray[i][11] === 'FIXED_DAY' &&
+                    OutputfileArray[i][12] === InputfileArray[i][7]))
         ) {
           passFlag = 1
         } else {
           passFlag = 0
+          console.log(InputfileArray[i])
+          console.log(OutputfileArray[i])
+          console.log('Mismatch in data found in row ' + i)
           logger.log('error', 'Mismatch in data found in row ' + i)
           break
         }
@@ -540,9 +543,11 @@ var methods = {
           OutputfileArray[i][2] === InputfileArray[i][2] &&
           OutputfileArray[i][4] ===
             moment(InputfileArray[i][4]).format('YYYYMMDD') &&
-          ((OutputfileArray[i][3] === 'CR' && InputfileArray[i][3] === 'C') || (OutputfileArray[i][3] === 'DR' && InputfileArray[i][3] === 'D')) &&
+          ((OutputfileArray[i][3] === 'CR' && InputfileArray[i][3] === 'C') ||
+            (OutputfileArray[i][3] === 'DR' && InputfileArray[i][3] === 'D')) &&
           OutputfileArray[i][5] === InputfileArray[i][5] &&
-          OutputfileArray[i][6] === InputfileArray[i][6]+InputfileArray[i][7] &&
+          OutputfileArray[i][6] ===
+            InputfileArray[i][6] + InputfileArray[i][7] &&
           OutputfileArray[i][7] === InputfileArray[i][8] &&
           OutputfileArray[i][8] === InputfileArray[i][9] &&
           OutputfileArray[i][9] === '' &&

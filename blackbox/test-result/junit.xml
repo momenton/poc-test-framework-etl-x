@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="52" failures="17" time="1.5">
-  <testsuite name="ETL tests" errors="0" failures="17" skipped="0" timestamp="2020-06-10T06:48:13" time="1.449" tests="52">
+<testsuites name="jest tests" tests="52" failures="51" time="7.024">
+  <testsuite name="ETL tests" errors="0" failures="51" skipped="0" timestamp="2020-06-11T03:29:53" time="6.547" tests="52">
     <testcase classname="ETL tests Directory check for correctness Directory check for correctness - 18 files" name="ETL tests Directory check for correctness Directory check for correctness - 18 files" time="0.002">
     </testcase>
-    <testcase classname="ETL tests Directory check for correctness Name of files should follow naming convention" name="ETL tests Directory check for correctness Name of files should follow naming convention" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.004">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" time="0.002">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
+    <testcase classname="ETL tests Directory check for correctness Name of files should follow naming convention" name="ETL tests Directory check for correctness Name of files should follow naming convention" time="0.002">
+      <failure>Error: expect(received).toBeTruthy()
 
-Expected: 6
-Received: 51
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:118:38)
+Received: false
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:81:9)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -22,13 +15,100 @@ Received: 51
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file Number of columns in output file should be 10" name="ETL tests File comparison tests of customer file Number of columns in output file should be 10" time="0.001">
+    <testcase classname="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of customer file date format in output header should be YYYYMMDD" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:111:45)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0.045">
+    <testcase classname="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of customer file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:118:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of customer file Number of records in Input and output file should be equal" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of customer file Number of columns in output file should be 10" name="ETL tests File comparison tests of customer file Number of columns in output file should be 10" time="0.002">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
 Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:138:28)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:135:27)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" name="ETL tests File comparison tests of customer file mapping of input file to output file should be correct" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:148:28)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -45,21 +125,49 @@ Received: 0
           CUSTOMER COHORT CATEGORY CODE_
           CUSTOMER COHORT CODE_
           BRANCH IDENTIFIER_" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of customer file mandatory columns of the file should be populated
           CUSTOMER IDENTIFIER_
           CUSTOMER STATUS_" name="ETL tests File comparison tests of customer file mandatory columns of the file should be populated
           CUSTOMER IDENTIFIER_
           CUSTOMER STATUS_" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:93:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0.001">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.002">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: &quot;#,20200604,5&quot;
-Received: &quot;#,20200604,10&quot;
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:202:28)
+    <testcase classname="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of deposit_account file date format in output header should be YYYYMMDD" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:203:45)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -67,13 +175,34 @@ Received: &quot;#,20200604,10&quot;
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" time="0">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 6
-Received: 11
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:210:26)
+    <testcase classname="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of deposit_account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:209:47)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of deposit_account file Number of records in Input and output file should be equal" time="0.004">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
     at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
@@ -81,6 +210,27 @@ Received: 11
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of deposit_account file Number of columns in output file should be eighteen" name="ETL tests File comparison tests of deposit_account file Number of columns in output file should be eighteen" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:227:27)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of deposit_account file mapping of input file to output file should be correct:
           X784219_KEY	--&gt; ACCOUNT IDENTIFIER_
@@ -100,11 +250,22 @@ Received: 11
           X784219_BSB	--&gt; BRANCH IDENTIFIER_
           X784219_AU_ATO_ACCOUNT_TYPE	--&gt; RETIREMENT ACCOUNT_
           X784219_SV_CHG_CYCLE_CODE	--&gt; DAY OF THE MONTH_
-          X784219_DATE_LAST_SUBPRDCT_CHG --&gt;	LAST CONVERSION DATE_" time="0.001">
+          X784219_DATE_LAST_SUBPRDCT_CHG --&gt;	LAST CONVERSION DATE_" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
-Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:237:28)
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:247:28)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -129,35 +290,32 @@ Received: 0
           GOOD STANDING_
           REGION CODE_
           PRODUCT CODE_" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" time="0.001">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
+      <failure>Error: ENOENT: no such file or directory, open
     at Object.openSync (fs.js:462:3)
     at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:183:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of account-customer-relationship file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of account-customer-relationship file date format in output header should be YYYYMMDD" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
     at Object.openSync (fs.js:462:3)
     at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" time="0.001">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
-    at Object.openSync (fs.js:462:3)
-    at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 6
-Received: 11
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:305:26)
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:298:45)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -165,17 +323,56 @@ Received: 11
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" name="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" time="0">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of account-customer-relationship file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
     at Object.openSync (fs.js:462:3)
     at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:303:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of account-customer-relationship file Number of records in Input and output file should be equal" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" name="ETL tests File comparison tests of account-customer-relationship file Number of columns in output file should be three" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
 Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:313:27)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:323:27)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -184,16 +381,21 @@ Received: 0
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " name="ETL tests File comparison tests of account-customer-relationship file mapping of input file to output file should be correct:Party Relationship Role - SOL -&gt; SOLE, COO -&gt; NON_PRIMARY, COF -&gt; NON_PRIMARY , PRI-&gt;PRIMARY " time="0.001">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
+      <failure>Error: ENOENT: no such file or directory, open
     at Object.openSync (fs.js:462:3)
     at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
-Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:324:28)
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:334:28)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -202,29 +404,32 @@ Received: 0
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" name="ETL tests File comparison tests of account-customer-relationship file mandatory columns of the file should be populated" time="0">
-      <failure>Error: ENOENT: no such file or directory, open &apos;/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/data/dev/account_cust_rel.csv&apos;
+      <failure>Error: ENOENT: no such file or directory, open
     at Object.openSync (fs.js:462:3)
     at Object.readFileSync (fs.js:364:35)
-    at Object.csvToArray (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:31:24)
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:270:36)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:279:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of empty input file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of empty input file date format in output header should be YYYYMMDD" time="0.001">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of empty input file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of empty input file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of empty input file Number of records in Input and output file should be 0" name="ETL tests File comparison tests of empty input file Number of records in Input and output file should be 0" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of Account Balance information file date format in output header should be YYYYMMDD" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Account Balance information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Account Balance information file Number of records in Input and output file should be equal" time="0.001">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 6
-Received: 11
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:436:26)
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:359:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:376:45)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -232,13 +437,111 @@ Received: 11
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file Number of columns in output file should be 6" name="ETL tests File comparison tests of Account Balance information file Number of columns in output file should be 6" time="0.001">
+    <testcase classname="ETL tests File comparison tests of empty input file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of empty input file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:359:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:381:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Account Balance information file mapping of input file to output file should be correct" time="0">
+    <testcase classname="ETL tests File comparison tests of empty input file Number of records in Input and output file should be 0" name="ETL tests File comparison tests of empty input file Number of records in Input and output file should be 0" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:359:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Account Balance information file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of Account Balance information file date format in output header should be YYYYMMDD" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:429:45)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Account Balance information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Account Balance information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:434:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Account Balance information file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Account Balance information file Number of records in Input and output file should be equal" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Account Balance information file Number of columns in output file should be 6" name="ETL tests File comparison tests of Account Balance information file Number of columns in output file should be 6" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
 Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:455:28)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:453:27)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -246,21 +549,104 @@ Received: 0
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Account Balance information file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Account Balance information file Unmapped columns of output file should be blank" time="0.001">
+    <testcase classname="ETL tests File comparison tests of Account Balance information file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Account Balance information file mapping of input file to output file should be correct" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:465:28)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Account Balance information file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Account Balance information file Unmapped columns of output file should be blank" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Account Balance information file mandatory columns of the file should be populated" name="ETL tests File comparison tests of Account Balance information file mandatory columns of the file should be populated" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:409:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package subscription information file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of Package subscription information file date format in output header should be YYYYMMDD" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:517:45)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package subscription information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Package subscription information file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:521:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package subscription information file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Package subscription information file Number of records in Input and output file should be equal" time="0.001">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 6
-Received: 5
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:519:24)
-    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
     at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
@@ -268,12 +654,21 @@ Received: 5
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package subscription information file Number of columns in output file should be 6" name="ETL tests File comparison tests of Package subscription information file Number of columns in output file should be 6" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Package subscription information file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Package subscription information file mapping of input file to output file should be correct" time="0.006">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
 Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:533:26)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:534:27)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -281,20 +676,69 @@ Received: 0
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Package subscription information file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Package subscription information file Unmapped columns of output file should be blank" time="0">
+    <testcase classname="ETL tests File comparison tests of Package subscription information file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Package subscription information file mapping of input file to output file should be correct" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:544:28)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Package subscription information file mandatory columns of the file should be populated" name="ETL tests File comparison tests of Package subscription information file mandatory columns of the file should be populated" time="0.001">
+    <testcase classname="ETL tests File comparison tests of Package subscription information file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Package subscription information file Unmapped columns of output file should be blank" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Package subscription information file mandatory columns of the file should be populated" name="ETL tests File comparison tests of Package subscription information file mandatory columns of the file should be populated" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:499:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package Account file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of Package Account file date format in output header should be YYYYMMDD" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Package Account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Package Account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
-    </testcase>
-    <testcase classname="ETL tests File comparison tests of Package Account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Package Account file Number of records in Input and output file should be equal" time="0.001">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: 6
-Received: 4
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:582:24)
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:584:45)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -302,13 +746,79 @@ Received: 4
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Package Account file Number of columns in output file should be 4" name="ETL tests File comparison tests of Package Account file Number of columns in output file should be 4" time="0">
+    <testcase classname="ETL tests File comparison tests of Package Account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Package Account file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:588:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Package Account file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Package Account file mapping of input file to output file should be correct" time="0.001">
+    <testcase classname="ETL tests File comparison tests of Package Account file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Package Account file Number of records in Input and output file should be equal" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Package Account file Number of columns in output file should be 4" name="ETL tests File comparison tests of Package Account file Number of columns in output file should be 4" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
       <failure>Error: expect(received).toBeTruthy()
 
 Received: 0
-    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:596:26)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:601:27)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname="ETL tests File comparison tests of Package Account file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Package Account file mapping of input file to output file should be correct" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:611:28)
     at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
     at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (&lt;anonymous&gt;)
@@ -317,22 +827,157 @@ Received: 0
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package Account file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Package Account file Unmapped columns of output file should be blank" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Package Account file mandatory columns of the file should be populated" name="ETL tests File comparison tests of Package Account file mandatory columns of the file should be populated" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:566:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Deposit Transaction file date format in output header should be YYYYMMDD" name="ETL tests File comparison tests of Deposit Transaction file date format in output header should be YYYYMMDD" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;1&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:658:45)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Deposit Transaction file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Deposit Transaction file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0.001">
+    <testcase classname="ETL tests File comparison tests of Deposit Transaction file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" name="ETL tests File comparison tests of Deposit Transaction file Header of output file &quot;#|YYYYMMDD|no of records ,&quot;" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>TypeError: Cannot read property &apos;toString&apos; of undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:662:47)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Deposit Transaction file Number of records in Input and output file should be equal" name="ETL tests File comparison tests of Deposit Transaction file Number of records in Input and output file should be equal" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Deposit Transaction file Number of columns in output file should be 14" name="ETL tests File comparison tests of Deposit Transaction file Number of columns in output file should be 14" time="0">
+    <testcase classname="ETL tests File comparison tests of Deposit Transaction file Number of columns in output file should be 14" name="ETL tests File comparison tests of Deposit Transaction file Number of columns in output file should be 14" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: 0
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:675:27)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname="ETL tests File comparison tests of Deposit Transaction file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Deposit Transaction file mapping of input file to output file should be correct" time="0.002">
+    <testcase classname="ETL tests File comparison tests of Deposit Transaction file mapping of input file to output file should be correct" name="ETL tests File comparison tests of Deposit Transaction file mapping of input file to output file should be correct" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+      <failure>Error: expect(received).toBeTruthy()
+
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:685:28)
+    at Object.asyncJestTest (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Deposit Transaction file Unmapped columns of output file should be blank" name="ETL tests File comparison tests of Deposit Transaction file Unmapped columns of output file should be blank" time="0">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
     <testcase classname="ETL tests File comparison tests of Deposit Transaction file mandatory columns of the file should be populated" name="ETL tests File comparison tests of Deposit Transaction file mandatory columns of the file should be populated" time="0.001">
+      <failure>Error: ENOENT: no such file or directory, open
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.convertTocsv (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/lib/utils.js:19:8)
+    at Object.&lt;anonymous&gt; (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/test/etlFilesDev.test.js:640:19)
+    at Object.asyncJestLifecycle (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:53:37)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+    at /Users/shuklaa1/ZafinETL_poc/poc-test-framework-etl-x/blackbox/node_modules/jest-jasmine2/build/queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
   </testsuite>
 </testsuites>
