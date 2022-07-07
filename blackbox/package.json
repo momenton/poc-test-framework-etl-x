@@ -15,7 +15,7 @@
     "firstline": "^2.0.2",
     "jest": "^25.2.6",
     "jest-diff": "^25.2.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "p-queue": "^6.3.0"
   },
   "devDependencies": {
